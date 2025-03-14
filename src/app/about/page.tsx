@@ -182,7 +182,7 @@ export default function AboutPage() {
                 desc: 'Aufbau eines bundesweiten Netzwerks von qualifizierten Partnern.'
               },
               {
-                year: '2024',
+                year: '2025',
                 title: 'Innovation & Digitalisierung',
                 desc: 'Einführung modernster Technologien und Online-Buchungssysteme.'
               }
