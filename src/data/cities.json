@@ -1,0 +1,52 @@
+{
+  "regions": [
+    {
+      "name": "Ostwestfalen-Lippe",
+      "mainCity": "Bielefeld",
+      "cities": [
+        "Bielefeld",
+        "Gütersloh",
+        "Detmold",
+        "Herford",
+        "Lemgo",
+        "Minden",
+        "Bad Oeynhausen",
+        "Rheda-Wiedenbrück",
+        "Lübbecke",
+        "Paderborn"
+      ]
+    },
+    {
+      "name": "Ruhrgebiet",
+      "mainCity": "Dortmund",
+      "cities": [
+        "Dortmund",
+        "Essen",
+        "Bochum",
+        "Duisburg",
+        "Gelsenkirchen",
+        "Oberhausen",
+        "Mülheim an der Ruhr",
+        "Hagen",
+        "Hamm",
+        "Recklinghausen"
+      ]
+    },
+    {
+      "name": "Niederrhein",
+      "mainCity": "Krefeld",
+      "cities": [
+        "Krefeld",
+        "Moers",
+        "Kleve",
+        "Wesel",
+        "Viersen",
+        "Kamp-Lintfort",
+        "Geldern",
+        "Xanten",
+        "Emmerich am Rhein",
+        "Kevelaer"
+      ]
+    }
+  ]
+} 

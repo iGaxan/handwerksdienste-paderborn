@@ -20,17 +20,23 @@ import {
   FaMapMarkerAlt
 } from 'react-icons/fa';
 
-const services = [
-  { icon: <FaKey className="text-xl" />, name: 'Schlüsseldienst', href: '/schluesseldienst' },
-  { icon: <FaShower className="text-xl" />, name: 'Rohrreinigung', href: '/rohrreinigung' },
-  { icon: <FaWrench className="text-xl" />, name: 'Sanitär & Heizung', href: '/sanitaer' },
-  { icon: <FaBug className="text-xl" />, name: 'Schädlingsbekämpfung', href: '/schaedlinge' },
-  { icon: <FaBolt className="text-xl" />, name: 'Elektro-Notdienst', href: '/elektro' },
+const mainServices = [
+  { name: 'Schlüsseldienst', href: '/schluesseldienst' },
+  { name: 'Rohrreinigung', href: '/rohrreinigung' },
+  { name: 'Sanitär', href: '/sanitaer' },
+  { name: 'Schädlingsbekämpfung', href: '/schaedlingsbekaempfung' },
+  { name: 'Elektro', href: '/elektro' },
+  { name: 'Entrümpelung', href: '/entruempelung' }
+];
+
+const cities = [
+  'Bielefeld', 'Gütersloh', 'Herford', 'Minden', 'Detmold'
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [citiesOpen, setCitiesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -87,22 +93,21 @@ export default function Navbar() {
                 <div className="relative group">
                   <button 
                     className="flex items-center space-x-2 text-white hover:text-[#007BFF] transition-colors"
-                    onClick={() => setShowDropdown(!showDropdown)}
+                    onClick={() => setServicesOpen(!servicesOpen)}
                   >
                     <FaTools className="text-xl" />
                     <span>Dienstleistungen</span>
                     <FaChevronDown className="text-sm ml-1" />
                   </button>
 
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                    {services.map((service) => (
+                  <div className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ${servicesOpen ? 'block' : 'hidden'}`}>
+                    {mainServices.map((service) => (
                       <Link
                         key={service.href}
                         href={service.href}
                         className="flex items-center space-x-3 px-4 py-3 hover:bg-[#003366] hover:text-white text-[#003366] transition-colors first:rounded-t-lg last:rounded-b-lg"
                       >
-                        {service.icon}
-                        <span>{service.name}</span>
+                        {service.name}
                       </Link>
                     ))}
                   </div>
@@ -168,15 +173,14 @@ export default function Navbar() {
                 <span>Dienstleistungen</span>
               </div>
               <div className="pl-8 space-y-3">
-                {services.map((service) => (
+                {mainServices.map((service) => (
                   <Link
                     key={service.href}
                     href={service.href}
                     className="flex items-center space-x-3 text-white hover:text-[#007BFF] transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
-                    {service.icon}
-                    <span>{service.name}</span>
+                    {service.name}
                   </Link>
                 ))}
               </div>
