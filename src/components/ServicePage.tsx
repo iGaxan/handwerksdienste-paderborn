@@ -43,12 +43,13 @@ const HeroSection = ({ title, subtitle }: { title: string, subtitle: string }) =
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl md:text-6xl font-bold text-white mb-4"
         >
-          {title.split('&').map((part, index) => (
-            <div key={index} className={index === 1 ? 'text-[#90cdf4]' : ''}>
-              {part.trim()}
-              {index === 0 && <span className="text-white">&</span>}
-            </div>
-          ))}
+          <span className="text-white">
+            {title.split('&')[0].trim()}
+            <span className="mx-2">&</span>
+            <span className="text-[#90cdf4]">
+              {title.split('&')[1]?.trim()}
+            </span>
+          </span>
         </motion.h1>
 
         <motion.div

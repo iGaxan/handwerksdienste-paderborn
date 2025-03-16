@@ -11,7 +11,6 @@ import {
   FaLinkedin,
   FaWhatsapp
 } from 'react-icons/fa';
-import cities from '@/data/cities.json';
 
 const services = [
   { name: 'Schlüsseldienst', href: 'schluesseldienst' },
@@ -20,6 +19,13 @@ const services = [
   { name: 'Schädlingsbekämpfung', href: 'schaedlingsbekaempfung' },
   { name: 'Elektro', href: 'elektro' },
   { name: 'Entrümpelung', href: 'entruempelung' }
+];
+
+const links = [
+  { name: 'Home', href: '/' },
+  { name: 'Über uns', href: '/about' },
+  { name: 'Kontakt', href: '/contact' },
+  { name: 'Servicegebiete', href: '/servicegebiete' },
 ];
 
 export default function Footer() {
@@ -64,68 +70,52 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Servicegebiete nach Regionen */}
-          <div className="lg:col-span-2">
-            <h3 className="text-xl font-bold mb-4">Servicegebiete</h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {cities.regions.map((region) => (
-                <div key={region.name}>
-                  <h4 className="font-bold text-[#60a5fa] mb-2">{region.name}</h4>
-                  <ul className="space-y-1">
-                    {region.cities.map((city) => (
-                      <li key={city}>
-                        <Link 
-                          href={`/${city.toLowerCase().replace(/\s+/g, '-').replace(/ü/g, 'ue').replace(/ö/g, 'oe').replace(/ä/g, 'ae').replace(/ß/g, 'ss')}`}
-                          className="text-sm hover:text-[#60a5fa]"
-                        >
-                          {city}
-                        </Link>
-                        <ul className="ml-3 mt-1 space-y-1">
-                          {services.map((service) => (
-                            <li key={`${city}-${service.href}`}>
-                              <Link 
-                                href={`/${city.toLowerCase().replace(/\s+/g, '-').replace(/ü/g, 'ue').replace(/ö/g, 'oe').replace(/ä/g, 'ae').replace(/ß/g, 'ss')}/${service.href}`}
-                                className="text-xs text-gray-300 hover:text-[#60a5fa]"
-                              >
-                                {service.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          {/* Links */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Links</h3>
+            <ul className="space-y-2">
+              {links.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="hover:text-[#60a5fa]">
+                    {link.name}
+                  </Link>
+                </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Social Media & Öffnungszeiten */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Öffnungszeiten</h3>
+            <ul className="space-y-2">
+              <li className="flex items-center">
+                <FaClock className="mr-2" />
+                <span>24/7 Notdienst</span>
+              </li>
+            </ul>
+            <div className="mt-6">
+              <h3 className="text-xl font-bold mb-4">Social Media</h3>
+              <div className="flex space-x-4">
+                <a href="#" className="hover:text-[#60a5fa]" aria-label="Facebook">
+                  <FaFacebook className="text-2xl" />
+                </a>
+                <a href="#" className="hover:text-[#60a5fa]" aria-label="Instagram">
+                  <FaInstagram className="text-2xl" />
+                </a>
+                <a href="#" className="hover:text-[#60a5fa]" aria-label="LinkedIn">
+                  <FaLinkedin className="text-2xl" />
+                </a>
+                <a href="https://wa.me/015735989735" className="hover:text-[#60a5fa]" aria-label="WhatsApp">
+                  <FaWhatsapp className="text-2xl" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Copyright & Social Media */}
-        <div className="mt-12 pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-sm text-gray-300">
-              © {new Date().getFullYear()} Alle Rechte vorbehalten
-            </div>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/impressum" className="text-sm text-gray-300 hover:text-[#60a5fa]">
-                Impressum
-              </Link>
-              <Link href="/datenschutz" className="text-sm text-gray-300 hover:text-[#60a5fa]">
-                Datenschutz
-              </Link>
-              <Link href="/agb" className="text-sm text-gray-300 hover:text-[#60a5fa]">
-                AGB
-              </Link>
-            </div>
-            <div className="flex space-x-4 mt-4 md:mt-0">
-              <a href="#" className="hover:text-[#60a5fa]">
-                <FaFacebook />
-              </a>
-              <a href="#" className="hover:text-[#60a5fa]">
-                <FaInstagram />
-              </a>
-            </div>
+        <div className="mt-12 pt-8 border-t border-gray-700">
+          <div className="text-center text-sm text-gray-400">
+            <p>&copy; {new Date().getFullYear()} Notdienst. Alle Rechte vorbehalten.</p>
           </div>
         </div>
       </div>
