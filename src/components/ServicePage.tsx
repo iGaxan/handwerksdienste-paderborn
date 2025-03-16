@@ -1,268 +1,281 @@
-import { FaPhone, FaWhatsapp, FaCheck, FaClock, FaMapMarkerAlt, FaStar, FaTools, FaShieldAlt, FaUsers } from 'react-icons/fa';
-import Link from 'next/link';
+'use client';
+
+import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { FaPhone, FaWhatsapp, FaCheckCircle } from 'react-icons/fa';
+import ContactForm from '@/components/ContactForm';
+
+interface Service {
+  title: string;
+  description: string;
+  icon: JSX.Element;
+}
 
 interface ServicePageProps {
   title: string;
-  description: string;
-  features: string[];
-  imageUrl: string;
-  videoUrl?: string;
-  price: string;
-  emergencyInfo?: string;
-  areas: string[];
-  benefits?: {
-    title: string;
-    description: string;
-    icon: string;
-  }[];
-  process?: {
-    title: string;
-    description: string;
-  }[];
-  faq?: {
-    question: string;
-    answer: string;
-  }[];
-  testimonials?: {
-    name: string;
-    location: string;
-    text: string;
-    rating: number;
-  }[];
+  subtitle: string;
+  heroImage: string;
+  services: Service[];
+  benefits: string[];
 }
 
-export default function ServicePage({
-  title,
-  description,
-  features,
-  imageUrl,
-  videoUrl,
-  price,
-  emergencyInfo = "24/7 Notdienst verfügbar",
-  areas,
-  benefits = [],
-  process = [],
-  faq = [],
-  testimonials = []
-}: ServicePageProps) {
+const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0 }
+};
+
+const HeroSection = ({ title, subtitle }: { title: string, subtitle: string }) => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-[#003366] text-white py-20">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">{title}</h1>
-              <p className="text-xl mb-8">{description}</p>
-              <div className="flex flex-wrap gap-4">
-                <a 
-                  href="tel:015735989735"
-                  className="bg-[#007BFF] hover:bg-[#1a4d80] text-white px-6 py-3 rounded-full flex items-center space-x-2 transition-colors"
-                >
-                  <FaPhone className="animate-pulse" />
-                  <span>Jetzt anrufen</span>
-                </a>
-                <a 
-                  href="https://wa.me/015735989735"
-                  className="bg-[#1a4d80] hover:bg-[#007BFF] text-white px-6 py-3 rounded-full flex items-center space-x-2 transition-colors"
-                >
-                  <FaWhatsapp />
-                  <span>WhatsApp Chat</span>
-                </a>
-              </div>
+    <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-[#1a365d] to-[#2563eb] text-center px-4">
+      <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-[#4285f4] text-white px-6 py-2 rounded-full font-medium"
+        >
+          24/7 Notdienst verfügbar
+        </motion.div>
+      </div>
+
+      <div className="max-w-4xl mx-auto">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-4xl md:text-6xl font-bold text-white mb-4"
+        >
+          {title.split('&').map((part, index) => (
+            <div key={index} className={index === 1 ? 'text-[#90cdf4]' : ''}>
+              {part.trim()}
+              {index === 0 && <span className="text-white">&</span>}
             </div>
-            <div className="relative h-[300px] rounded-xl overflow-hidden">
-              <Image
-                src={imageUrl}
-                alt={title}
-                fill
-                className="object-cover"
-              />
+          ))}
+        </motion.h1>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-white text-xl mb-12"
+        >
+          <span className="inline-flex items-center gap-2">
+            Schnell <span className="text-[#90cdf4]">✓</span>
+          </span>
+          {' '}
+          <span className="inline-flex items-center gap-2">
+            Zuverlässig <span className="text-[#90cdf4]">✓</span>
+          </span>
+          {' '}
+          <span className="inline-flex items-center gap-2">
+            Fair <span className="text-[#90cdf4]">✓</span>
+          </span>
+          {' '}
+          <span className="inline-flex items-center gap-2">
+            Umweltfreundlich <span className="text-[#90cdf4]">✓</span>
+          </span>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12"
+        >
+          <div className="grid grid-cols-3 gap-8 text-white">
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-[#90cdf4] mb-2">15+</div>
+              <div className="text-sm">Jahre Erfahrung</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-[#90cdf4] mb-2">5000+</div>
+              <div className="text-sm">Zufriedene Kunden</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-[#90cdf4] mb-2">100%</div>
+              <div className="text-sm">Festpreisgarantie</div>
             </div>
           </div>
-        </div>
-      </section>
+        </motion.div>
 
-      {/* Video Section */}
-      {videoUrl && (
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-[#003366] mb-8 text-center">Unser Service im Überblick</h2>
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-xl">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-              >
-                <source src={videoUrl} type="video/mp4" />
-              </video>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          <a
+            href="tel:015735989735"
+            className="bg-[#4285f4] hover:bg-[#3367d6] text-white px-8 py-4 rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <FaPhone /> Kostenlos anfragen
+          </a>
+          <a
+            href="https://wa.me/4915735989735"
+            className="bg-[#25D366] hover:bg-[#128C7E] text-white px-8 py-4 rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <FaWhatsapp /> WhatsApp Anfrage
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default function ServicePage({ 
+  title = '', 
+  subtitle = '', 
+  heroImage = '/images/default-hero.jpg', 
+  services = [], 
+  benefits = [] 
+}: ServicePageProps) {
+  if (!title || !subtitle || !services.length || !benefits.length) {
+    console.warn('ServicePage: Required props are missing');
+  }
+
+  return (
+    <main className="min-h-screen bg-gray-50">
+      <HeroSection title={title} subtitle={subtitle} />
+
+      {/* Services Section */}
+      {services.length > 0 && (
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <motion.div 
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="text-center mb-16"
+            >
+              <span className="inline-block bg-blue-100 text-[#1a365d] px-4 py-2 rounded-full font-semibold mb-4">
+                Unsere Leistungen
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1a365d] mb-4">
+                Professioneller Service
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Wir bieten Ihnen maßgeschneiderte Lösungen für alle Ihre Anforderungen.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {services.map((service, index) => (
+                <motion.div
+                  key={index}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                  variants={fadeInUp}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center text-[#1a365d] mb-6">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-[#1a365d] mb-4">{service.title}</h3>
+                  <p className="text-gray-600">{service.description}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
       )}
 
-      {/* Features Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl font-bold text-[#003366] mb-8">Unsere Leistungen</h2>
-              <div className="space-y-4">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <FaCheck className="text-[#007BFF] mt-1 flex-shrink-0" />
-                    <p className="text-gray-700">{feature}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="flex items-center space-x-4 mb-6">
-                <FaClock className="text-2xl text-[#007BFF]" />
-                <div>
-                  <h3 className="text-xl font-bold text-[#003366]">24/7 Notdienst</h3>
-                  <p className="text-gray-700">{emergencyInfo}</p>
-                </div>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">Preise</h3>
-                <p className="text-gray-700">{price}</p>
-              </div>
-              <a 
-                href="tel:015735989735"
-                className="bg-[#003366] hover:bg-[#007BFF] text-white px-6 py-3 rounded-full flex items-center justify-center space-x-2 transition-colors w-full"
+      {/* Trust Indicators */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { value: '20-30', label: 'Minuten Reaktionszeit' },
+              { value: '24/7', label: 'Notdienst' },
+              { value: '100%', label: 'Festpreisgarantie' },
+              { value: '4.9', label: 'Kundenbewertung' }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="text-center"
               >
-                <FaPhone />
-                <span>Kostenlos anrufen</span>
-              </a>
-            </div>
+                <div className="text-4xl font-bold text-[#1a365d] mb-2">{item.value}</div>
+                <div className="text-gray-600">{item.label}</div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Benefits Section */}
       {benefits.length > 0 && (
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-[#003366] mb-12 text-center">Ihre Vorteile</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+        <section className="py-20 bg-[#1a365d]">
+          <div className="container mx-auto px-4">
+            <motion.div 
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="text-center mb-16"
+            >
+              <span className="inline-block bg-white/10 text-white px-4 py-2 rounded-full font-semibold mb-4">
+                Ihre Vorteile
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Warum Sie sich für uns entscheiden
+              </h2>
+              <p className="text-lg text-white/90 max-w-2xl mx-auto">
+                Verlassen Sie sich auf unsere Erfahrung und Professionalität.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {benefits.map((benefit, index) => (
-                <div key={index} className="bg-gray-50 p-6 rounded-xl">
-                  <div className="w-12 h-12 bg-[#007BFF] rounded-full flex items-center justify-center mb-4">
-                    <i className={`text-white text-xl ${benefit.icon}`}></i>
+                <motion.div
+                  key={index}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                  variants={fadeInUp}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-center gap-4 bg-white/5 p-4 rounded-lg"
+                >
+                  <div className="bg-white/10 rounded-full p-2 flex-shrink-0">
+                    <FaCheckCircle className="text-white text-xl" />
                   </div>
-                  <h3 className="text-xl font-bold text-[#003366] mb-3">{benefit.title}</h3>
-                  <p className="text-gray-700">{benefit.description}</p>
-                </div>
+                  <span className="text-white text-lg">{benefit}</span>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
       )}
 
-      {/* Process Section */}
-      {process.length > 0 && (
-        <section className="py-16">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-[#003366] mb-12 text-center">So arbeiten wir</h2>
-            <div className="space-y-8">
-              {process.map((step, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-[#007BFF] rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold">{index + 1}</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-[#003366] mb-2">{step.title}</h3>
-                    <p className="text-gray-700">{step.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Contact Form Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <span className="inline-block bg-blue-100 text-[#1a365d] px-4 py-2 rounded-full font-semibold mb-4">
+              Kontakt
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1a365d] mb-4">
+              Kostenloses Angebot anfordern
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Füllen Sie das Formular aus und wir melden uns umgehend bei Ihnen.
+            </p>
+          </motion.div>
 
-      {/* Testimonials Section */}
-      {testimonials.length > 0 && (
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-[#003366] mb-12 text-center">Das sagen unsere Kunden</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-gray-50 p-6 rounded-xl">
-                  <div className="flex text-[#007BFF] mb-3">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <FaStar key={i} />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 mb-4">{testimonial.text}</p>
-                  <div className="text-[#003366] font-semibold">
-                    {testimonial.name} aus {testimonial.location}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* FAQ Section */}
-      {faq.length > 0 && (
-        <section className="py-16">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-[#003366] mb-12 text-center">Häufig gestellte Fragen</h2>
-            <div className="space-y-6 max-w-3xl mx-auto">
-              {faq.map((item, index) => (
-                <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
-                  <h3 className="text-xl font-bold text-[#003366] mb-3">{item.question}</h3>
-                  <p className="text-gray-700">{item.answer}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Service Areas */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-[#003366] mb-8">Einsatzgebiete</h2>
-          <div className="flex flex-wrap gap-4">
-            {areas.map((area, index) => (
-              <Link
-                key={index}
-                href={`/einsatzgebiete/${area.toLowerCase().replace(/\s+/g, '-')}`}
-                className="flex items-center space-x-2 bg-gray-50 hover:bg-[#003366] text-[#003366] hover:text-white px-4 py-2 rounded-full transition-colors"
-              >
-                <FaMapMarkerAlt />
-                <span>{area}</span>
-              </Link>
-            ))}
+          <div className="max-w-2xl mx-auto">
+            <ContactForm service={title} />
           </div>
         </div>
       </section>
-
-      {/* Emergency Call Banner */}
-      <div className="fixed bottom-0 left-0 right-0 bg-[#003366] text-white py-4 md:hidden">
-        <div className="container mx-auto px-6">
-          <div className="flex justify-between items-center">
-            <div>
-              <p className="font-bold">24/7 Notdienst</p>
-              <p className="text-sm">{emergencyInfo}</p>
-            </div>
-            <a
-              href="tel:015735989735"
-              className="bg-[#007BFF] px-4 py-2 rounded-full flex items-center space-x-2"
-            >
-              <FaPhone />
-              <span>Anrufen</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    </main>
   );
 } 

@@ -1,105 +1,68 @@
+'use client';
+
 import ServicePage from '@/components/ServicePage';
+import { 
+  FaKey, 
+  FaLock, 
+  FaShieldAlt, 
+  FaTools, 
+  FaDoorOpen, 
+  FaHome 
+} from 'react-icons/fa';
+
+const services = [
+  {
+    title: "Türöffnung ohne Schäden",
+    description: "Professionelle Türöffnung bei Aussperrung - schnell und ohne Beschädigung Ihrer Tür.",
+    icon: <FaDoorOpen className="text-3xl" />
+  },
+  {
+    title: "Schloss-Austausch",
+    description: "Austausch und Reparatur von Schließzylindern und Schlössern aller Art.",
+    icon: <FaLock className="text-3xl" />
+  },
+  {
+    title: "Einbruchschutz",
+    description: "Sicherheitsberatung und Installation von einbruchhemmenden Systemen.",
+    icon: <FaShieldAlt className="text-3xl" />
+  },
+  {
+    title: "Schließanlagen",
+    description: "Installation und Wartung von mechanischen und elektronischen Schließanlagen.",
+    icon: <FaKey className="text-3xl" />
+  },
+  {
+    title: "Notfall-Service",
+    description: "24/7 Notdienst bei Aussperrung, defekten Schlössern oder nach Einbruch.",
+    icon: <FaTools className="text-3xl" />
+  },
+  {
+    title: "Smart Home Security",
+    description: "Beratung und Installation von digitalen Zutrittssystemen und Smart Locks.",
+    icon: <FaHome className="text-3xl" />
+  }
+];
+
+const benefits = [
+  "24/7 Notdienst - Tag und Nacht für Sie da",
+  "Festpreisgarantie ohne versteckte Kosten",
+  "Anfahrt innerhalb von 20-30 Minuten",
+  "Schadenfreie Türöffnung",
+  "Ausgebildete Fachkräfte mit jahrelanger Erfahrung",
+  "Modernste Werkzeuge und Techniken",
+  "Kostenlose Sicherheitsberatung",
+  "TÜV-geprüfte Schlösser und Schließanlagen",
+  "Rechnung mit Garantie"
+];
 
 export default function SchluessseldienstPage() {
   return (
     <ServicePage
       title="Schlüsseldienst & Türöffnung"
-      description="Schneller & zuverlässiger Schlüsseldienst – 24/7 für Sie da. Professionelle Türöffnung ohne Schäden zu fairen Preisen."
-      features={[
-        "Türöffnung ohne Schäden in unter 20 Minuten",
-        "Einbruchschutz & Sicherheitsberatung",
-        "Schließanlagen & Schließzylinder",
-        "Schlüssel nachmachen & Schlüsselnotdienst",
-        "Elektronische Schließsysteme",
-        "Tresoröffnung & Tresormontage"
-      ]}
-      imageUrl="/images/services/locksmith/closeup-shot-person-holding-door-knob-opening-door.jpg"
-      videoUrl="/images/services/locksmith/998121_Keyhole_Lock_1920x1080.mp4"
-      price="Türöffnung ab 39€ - Festpreisgarantie, keine versteckten Kosten"
-      emergencyInfo="In der Regel sind wir innerhalb von 20 Minuten bei Ihnen vor Ort"
-      areas={[
-        "Berlin",
-        "Hamburg",
-        "München",
-        "Köln",
-        "Frankfurt",
-        "Stuttgart",
-        "Düsseldorf",
-        "Leipzig"
-      ]}
-      benefits={[
-        {
-          title: "Schnelle Hilfe",
-          description: "Unser Notdienst ist innerhalb von 20 Minuten bei Ihnen vor Ort - 24 Stunden am Tag, 7 Tage die Woche.",
-          icon: "FaClock"
-        },
-        {
-          title: "Faire Preise",
-          description: "Transparente Festpreise ohne versteckte Kosten. Bezahlung erst nach erfolgreicher Türöffnung.",
-          icon: "FaEuroSign"
-        },
-        {
-          title: "Professionell & Sicher",
-          description: "Ausgebildete Fachkräfte öffnen Ihre Tür zuverlässig und ohne Beschädigungen.",
-          icon: "FaShieldAlt"
-        }
-      ]}
-      process={[
-        {
-          title: "Anruf & Beratung",
-          description: "Sie erreichen uns 24/7 unter unserer Notfallnummer. Wir beraten Sie sofort und nennen Ihnen den Festpreis."
-        },
-        {
-          title: "Schnelle Anfahrt",
-          description: "Unser nächster verfügbarer Techniker macht sich sofort auf den Weg zu Ihnen - meist innerhalb von 20 Minuten vor Ort."
-        },
-        {
-          title: "Professionelle Türöffnung",
-          description: "Mit speziellen Werkzeugen öffnen wir Ihre Tür schnell und ohne Beschädigungen."
-        },
-        {
-          title: "Sicherheitscheck",
-          description: "Nach der Türöffnung prüfen wir Ihr Schloss und beraten Sie zu möglichen Sicherheitsverbesserungen."
-        }
-      ]}
-      faq={[
-        {
-          question: "Wie schnell sind Sie vor Ort?",
-          answer: "In der Regel erreichen wir Sie innerhalb von 20 Minuten nach Ihrem Anruf. In 95% der Fälle sind wir unter 30 Minuten bei Ihnen."
-        },
-        {
-          question: "Was kostet eine Türöffnung?",
-          answer: "Unsere Türöffnungen beginnen bei 39€. Der genaue Preis hängt von der Tür, dem Schloss und der Tageszeit ab. Wir nennen Ihnen den Festpreis vorab am Telefon."
-        },
-        {
-          question: "Beschädigen Sie meine Tür?",
-          answer: "Nein, wir arbeiten mit speziellen Öffnungstechniken, die keine Schäden hinterlassen. Unsere Fachkräfte sind darauf spezialisiert, Türen schonend zu öffnen."
-        },
-        {
-          question: "Arbeiten Sie auch nachts und am Wochenende?",
-          answer: "Ja, unser Notdienst ist 24/7 verfügbar - auch nachts, an Wochenenden und Feiertagen, ohne Aufpreis."
-        }
-      ]}
-      testimonials={[
-        {
-          name: "Michael Schmidt",
-          location: "Berlin",
-          text: "Super schneller Service! Nach nur 15 Minuten war der Monteur da und hatte meine Tür in wenigen Minuten geöffnet. Sehr professionell und fair im Preis.",
-          rating: 5
-        },
-        {
-          name: "Sandra Meyer",
-          location: "Hamburg",
-          text: "Musste nachts um 2 Uhr den Notdienst rufen. Sehr freundlicher Service und keine überteuerten Nachtzuschläge. Klare Empfehlung!",
-          rating: 5
-        },
-        {
-          name: "Thomas Weber",
-          location: "München",
-          text: "Kompetente Beratung am Telefon, schnelle Hilfe vor Ort und faire Preise. Hat mir auch gleich Tipps zur Verbesserung der Sicherheit gegeben.",
-          rating: 5
-        }
-      ]}
+      subtitle="Ihr professioneller Schlüsseldienst für schnelle und schadenfreie Türöffnungen. 24/7 Notdienst mit Festpreisgarantie und 20-30 Minuten Reaktionszeit."
+      heroImage="/images/schluesseldienst-hero.jpg"
+      services={services}
+      benefits={benefits}
     />
   );
 } 

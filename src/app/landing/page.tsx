@@ -16,7 +16,7 @@ import {
   FaShieldAlt,
   FaClock
 } from 'react-icons/fa';
-
+i
 const MotionDiv = motion.div;
 const MotionSection = motion.section;
 const MotionLink = motion.a;
@@ -24,20 +24,19 @@ const MotionLink = motion.a;
 // Animation variants
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  animate: { opacity: 1, y: 0 }
 };
 
 const pulseButton = {
   initial: { scale: 1 },
   animate: { 
-    scale: [1, 1.02, 1],
-    transition: {
-      duration: 2,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
+    scale: [1, 1.02, 1]
   }
+};
+
+const rotateIcon = {
+  initial: { rotate: 0 },
+  animate: { rotate: 360 }
 };
 
 export default function LandingPage() {
@@ -107,6 +106,7 @@ export default function LandingPage() {
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <span className="inline-block bg-blue-100 text-[#003366] px-4 py-2 rounded-full font-semibold mb-4">
@@ -126,13 +126,14 @@ export default function LandingPage() {
           whileInView="animate"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInUp}
-          whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+          transition={{ duration: 0.6 }}
+          whileHover={{ scale: 1.02 }}
           className="mb-24 bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all hover:shadow-2xl"
         >
           <div className="grid md:grid-cols-2 gap-12">
             <div className="p-12">
               <MotionSection 
-                whileHover={{ rotate: 360 }}
+                variants={rotateIcon}
                 transition={{ duration: 0.6 }}
                 className="inline-block bg-[#003366] text-white p-3 rounded-full mb-6"
               >
@@ -156,7 +157,11 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <MotionSection whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <MotionSection 
+                  whileHover={{ scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <Link 
                     href="/schluesseldienst"
                     className="inline-block bg-[#003366] text-white px-6 py-3 rounded-lg hover:bg-[#0052a3] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
@@ -164,7 +169,11 @@ export default function LandingPage() {
                     Mehr erfahren
                   </Link>
                 </MotionSection>
-                <MotionSection whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <MotionSection 
+                  whileHover={{ scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <a
                     href="tel:0800123456789"
                     className="inline-block bg-[#0066cc] text-white px-6 py-3 rounded-lg hover:bg-[#0052a3] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
@@ -193,7 +202,8 @@ export default function LandingPage() {
           whileInView="animate"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInUp}
-          whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+          transition={{ duration: 0.6 }}
+          whileHover={{ scale: 1.02 }}
           className="mb-24 bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all hover:shadow-2xl"
         >
           <div className="grid md:grid-cols-2 gap-12">
@@ -208,7 +218,7 @@ export default function LandingPage() {
             </div>
             <div className="p-12 order-1 md:order-2">
               <MotionSection 
-                whileHover={{ rotate: 360 }}
+                variants={rotateIcon}
                 transition={{ duration: 0.6 }}
                 className="inline-block bg-[#003366] text-white p-3 rounded-full mb-6"
               >
@@ -232,7 +242,11 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <MotionSection whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <MotionSection 
+                  whileHover={{ scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <Link 
                     href="/rohrreinigung"
                     className="inline-block bg-[#003366] text-white px-6 py-3 rounded-lg hover:bg-[#0052a3] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
@@ -240,7 +254,11 @@ export default function LandingPage() {
                     Mehr erfahren
                   </Link>
                 </MotionSection>
-                <MotionSection whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <MotionSection 
+                  whileHover={{ scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <a
                     href="tel:0800123456789"
                     className="inline-block bg-[#0066cc] text-white px-6 py-3 rounded-lg hover:bg-[#0052a3] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
@@ -260,13 +278,14 @@ export default function LandingPage() {
           whileInView="animate"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInUp}
-          whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+          transition={{ duration: 0.6 }}
+          whileHover={{ scale: 1.02 }}
           className="mb-24 bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all hover:shadow-2xl"
         >
           <div className="grid md:grid-cols-2 gap-12">
             <div className="p-12">
               <MotionSection 
-                whileHover={{ rotate: 360 }}
+                variants={rotateIcon}
                 transition={{ duration: 0.6 }}
                 className="inline-block bg-[#003366] text-white p-3 rounded-full mb-6"
               >
@@ -290,7 +309,11 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <MotionSection whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <MotionSection 
+                  whileHover={{ scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <Link 
                     href="/sanitaer"
                     className="inline-block bg-[#003366] text-white px-6 py-3 rounded-lg hover:bg-[#0052a3] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
@@ -298,7 +321,11 @@ export default function LandingPage() {
                     Mehr erfahren
                   </Link>
                 </MotionSection>
-                <MotionSection whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <MotionSection 
+                  whileHover={{ scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <a
                     href="tel:0800123456789"
                     className="inline-block bg-[#0066cc] text-white px-6 py-3 rounded-lg hover:bg-[#0052a3] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
@@ -327,7 +354,8 @@ export default function LandingPage() {
           whileInView="animate"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInUp}
-          whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+          transition={{ duration: 0.6 }}
+          whileHover={{ scale: 1.02 }}
           className="mb-24 bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all hover:shadow-2xl"
         >
           <div className="grid md:grid-cols-2 gap-12">
@@ -342,7 +370,7 @@ export default function LandingPage() {
             </div>
             <div className="p-12 order-1 md:order-2">
               <MotionSection 
-                whileHover={{ rotate: 360 }}
+                variants={rotateIcon}
                 transition={{ duration: 0.6 }}
                 className="inline-block bg-[#003366] text-white p-3 rounded-full mb-6"
               >
@@ -366,7 +394,11 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <MotionSection whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <MotionSection 
+                  whileHover={{ scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <Link 
                     href="/schaedlingsbekaempfung"
                     className="inline-block bg-[#003366] text-white px-6 py-3 rounded-lg hover:bg-[#0052a3] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
@@ -374,7 +406,11 @@ export default function LandingPage() {
                     Mehr erfahren
                   </Link>
                 </MotionSection>
-                <MotionSection whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <MotionSection 
+                  whileHover={{ scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <a
                     href="tel:0800123456789"
                     className="inline-block bg-[#0066cc] text-white px-6 py-3 rounded-lg hover:bg-[#0052a3] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
@@ -394,13 +430,14 @@ export default function LandingPage() {
           whileInView="animate"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInUp}
-          whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+          transition={{ duration: 0.6 }}
+          whileHover={{ scale: 1.02 }}
           className="mb-24 bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all hover:shadow-2xl"
         >
           <div className="grid md:grid-cols-2 gap-12">
             <div className="p-12">
               <MotionSection 
-                whileHover={{ rotate: 360 }}
+                variants={rotateIcon}
                 transition={{ duration: 0.6 }}
                 className="inline-block bg-[#003366] text-white p-3 rounded-full mb-6"
               >
@@ -424,7 +461,11 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <MotionSection whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <MotionSection 
+                  whileHover={{ scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <Link 
                     href="/elektro"
                     className="inline-block bg-[#003366] text-white px-6 py-3 rounded-lg hover:bg-[#0052a3] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
@@ -432,7 +473,11 @@ export default function LandingPage() {
                     Mehr erfahren
                   </Link>
                 </MotionSection>
-                <MotionSection whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <MotionSection 
+                  whileHover={{ scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <a
                     href="tel:0800123456789"
                     className="inline-block bg-[#0066cc] text-white px-6 py-3 rounded-lg hover:bg-[#0052a3] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
