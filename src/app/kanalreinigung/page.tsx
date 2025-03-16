@@ -2,53 +2,67 @@
 
 import ServicePage from '@/components/ServicePage';
 import { 
+  FaWrench, 
+  FaVideo, 
   FaWater, 
-  FaCamera, 
-  FaPump, 
-  FaSearchLocation, 
   FaTools, 
+  FaSearchLocation, 
   FaRecycle 
 } from 'react-icons/fa';
 
 const services = [
   {
     title: "Kanalreinigung",
-    description: "Professionelle Reinigung von Abwasserkanälen und Rohrleitungen.",
+    description: "Professionelle Reinigung von Abwasserkanälen und Rohrleitungen mit modernster Technik.",
+    icon: <FaWrench className="text-3xl" />
+  },
+  {
+    title: "Kamera-Inspektion",
+    description: "Genaue Untersuchung der Kanäle mit hochauflösender Kameratechnik zur Schadenserkennung.",
+    icon: <FaVideo className="text-3xl" />
+  },
+  {
+    title: "Hochdruck-Spülung",
+    description: "Effektive Reinigung mit Hochdruckspülung für hartnäckige Verstopfungen und Ablagerungen.",
     icon: <FaWater className="text-3xl" />
   },
   {
-    title: "Kanalinspektion",
-    description: "HD-Kamerabefahrung zur Zustandserfassung und Schadenserkennung.",
-    icon: <FaCamera className="text-3xl" />
-  },
-  {
-    title: "Hochdruckspülung",
-    description: "Effektive Reinigung mit modernster Hochdrucktechnik.",
-    icon: <FaPump className="text-3xl" />
-  },
-  {
-    title: "Ortung & Analyse",
-    description: "Präzise Ortung von Schäden und Verstopfungen.",
-    icon: <FaSearchLocation className="text-3xl" />
-  },
-  {
-    title: "Wartung",
-    description: "Regelmäßige Wartung und Pflege von Kanalsystemen.",
+    title: "Wartung & Pflege",
+    description: "Regelmäßige Wartung Ihrer Kanalsysteme zur Vorbeugung von Verstopfungen und Schäden.",
     icon: <FaTools className="text-3xl" />
   },
   {
-    title: "Umweltschutz",
-    description: "Umweltschonende Reinigung und Entsorgung.",
+    title: "Leckageortung",
+    description: "Präzise Ortung von Leckagen und Rohrbrüchen mit modernster Technik.",
+    icon: <FaSearchLocation className="text-3xl" />
+  },
+  {
+    title: "Umweltfreundlich",
+    description: "Einsatz umweltschonender Reinigungsmethoden und -mittel.",
     icon: <FaRecycle className="text-3xl" />
   }
 ];
 
 const benefits = [
-  "24/7 Notdienst bei Verstopfungen",
-  "Festpreisgarantie ohne versteckte Kosten",
-  "Modernste Reinigungstechnik",
-  "HD-Kamerainspektion",
   "Erfahrene Fachkräfte",
   "Umweltschonende Methoden",
   "Schnelle Reaktionszeiten",
-  "Dokument 
+  "Dokumentierte Inspektionen",
+  "24/7 Notdienst verfügbar",
+  "Festpreisgarantie",
+  "Modernste Reinigungstechnik",
+  "Langfristige Lösungen",
+  "Garantie auf alle Arbeiten"
+];
+
+export default function KanalreinigungPage() {
+  return (
+    <ServicePage
+      title="Professionelle Kanalreinigung & Inspektion"
+      subtitle="Ihr Experte für schnelle und zuverlässige Kanalreinigung. 24/7 Notdienst mit modernster Technik und Festpreisgarantie."
+      heroImage="/images/kanalreinigung-hero.jpg"
+      services={services}
+      benefits={benefits}
+    />
+  );
+} 
