@@ -12,6 +12,13 @@ import {
   FaWhatsapp
 } from 'react-icons/fa';
 
+const links = [
+  { name: 'Home', href: '/' },
+  { name: 'Über uns', href: '/about' },
+  { name: 'Kontakt', href: '/contact' },
+  { name: 'Servicegebiete', href: '/servicegebiete' },
+];
+
 const services = [
   { name: 'Schlüsseldienst', href: 'schluesseldienst' },
   { name: 'Rohrreinigung', href: 'rohrreinigung' },
@@ -21,12 +28,7 @@ const services = [
   { name: 'Entrümpelung', href: 'entruempelung' }
 ];
 
-const links = [
-  { name: 'Home', href: '/' },
-  { name: 'Über uns', href: '/about' },
-  { name: 'Kontakt', href: '/contact' },
-  { name: 'Servicegebiete', href: '/servicegebiete' },
-];
+
 
 export default function Footer() {
   return (

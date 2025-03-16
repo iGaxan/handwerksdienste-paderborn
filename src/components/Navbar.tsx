@@ -105,10 +105,10 @@ export default function Navbar() {
                       <Link
                         key={service.href}
                         href={service.href}
-                        className="flex items-center space-x-3 px-4 py-3 hover:bg-[#003366] hover:text-white text-[#003366] transition-colors first:rounded-t-lg last:rounded-b-lg"
+                        className="flex items-center space-x-3 px-6 py-4 hover:bg-[#003366] hover:text-white text-[#003366] transition-colors first:rounded-t-lg last:rounded-b-lg border-b border-gray-100 last:border-b-0"
                       >
                         {service.icon}
-                        <span>{service.name}</span>
+                        <span className="font-medium">{service.name}</span>
                       </Link>
                     ))}
                   </div>
@@ -178,11 +178,13 @@ export default function Navbar() {
                   <Link
                     key={service.href}
                     href={service.href}
-                    className="flex items-center space-x-3 text-white hover:text-[#007BFF] transition-colors"
+                    className="flex items-center space-x-3 text-white hover:text-[#007BFF] transition-colors py-3 border-b border-white/10 last:border-b-0"
                     onClick={() => setIsOpen(false)}
                   >
-                    {service.icon}
-                    <span>{service.name}</span>
+                    <div className="bg-white/10 p-2 rounded-lg">
+                      {service.icon}
+                    </div>
+                    <span className="font-medium">{service.name}</span>
                   </Link>
                 ))}
               </div>
