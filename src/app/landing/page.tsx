@@ -16,7 +16,6 @@ import {
   FaShieldAlt,
   FaClock
 } from 'react-icons/fa';
-i
 const MotionDiv = motion.div;
 const MotionSection = motion.section;
 const MotionLink = motion.a;
