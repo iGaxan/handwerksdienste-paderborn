@@ -21,12 +21,12 @@ import {
 } from 'react-icons/fa';
 
 const mainServices = [
-  { name: 'Schlüsseldienst', href: '/schluesseldienst' },
-  { name: 'Rohrreinigung', href: '/rohrreinigung' },
-  { name: 'Sanitär', href: '/sanitaer' },
-  { name: 'Schädlingsbekämpfung', href: '/schaedlingsbekaempfung' },
-  { name: 'Elektro', href: '/elektro' },
-  { name: 'Entrümpelung', href: '/entruempelung' }
+  { name: 'Schlüsseldienst', href: '/schluesseldienst', icon: <FaKey className="text-xl" /> },
+  { name: 'Rohrreinigung', href: '/rohrreinigung', icon: <FaWrench className="text-xl" /> },
+  { name: 'Sanitär', href: '/sanitaer', icon: <FaShower className="text-xl" /> },
+  { name: 'Schädlingsbekämpfung', href: '/schaedlingsbekaempfung', icon: <FaBug className="text-xl" /> },
+  { name: 'Elektro', href: '/elektro', icon: <FaBolt className="text-xl" /> },
+  { name: 'Entrümpelung', href: '/entruempelung', icon: <FaTools className="text-xl" /> }
 ];
 
 const cities = [
@@ -107,7 +107,8 @@ export default function Navbar() {
                         href={service.href}
                         className="flex items-center space-x-3 px-4 py-3 hover:bg-[#003366] hover:text-white text-[#003366] transition-colors first:rounded-t-lg last:rounded-b-lg"
                       >
-                        {service.name}
+                        {service.icon}
+                        <span>{service.name}</span>
                       </Link>
                     ))}
                   </div>
@@ -180,7 +181,8 @@ export default function Navbar() {
                     className="flex items-center space-x-3 text-white hover:text-[#007BFF] transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
-                    {service.name}
+                    {service.icon}
+                    <span>{service.name}</span>
                   </Link>
                 ))}
               </div>
