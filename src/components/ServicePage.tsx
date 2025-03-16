@@ -264,10 +264,10 @@ export default function ServicePage({
               Kontakt
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-[#1a365d] mb-4">
-              Kostenloses Angebot anfordern
+              Kontaktieren Sie uns
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Füllen Sie das Formular aus und wir melden uns umgehend bei Ihnen.
+              Wir sind rund um die Uhr für Sie da. Schreiben Sie uns eine Nachricht.
             </p>
           </motion.div>
 
