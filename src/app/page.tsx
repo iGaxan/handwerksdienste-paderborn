@@ -1,287 +1,518 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { 
   FaPhone, 
+  FaWhatsapp, 
   FaKey, 
-  FaShower, 
   FaWrench, 
   FaBug, 
   FaBolt, 
-  FaCheck, 
-  FaArrowRight,
+  FaShower,
   FaClock,
   FaTools,
-  FaMapMarkerAlt,
   FaShieldAlt,
   FaStar,
-  FaEnvelope,
-  FaBuilding
+  FaCheckCircle,
+  FaMapMarkerAlt,
+  FaArrowRight
 } from 'react-icons/fa';
 
+const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0 }
+};
+
+const scaleIn = {
+  initial: { scale: 0.8, opacity: 0 },
+  animate: { scale: 1, opacity: 1 }
+};
+
+const heroImages = [
+  '/images/hero/locksmith-hero.jpg',
+  '/images/hero/plumbing-hero.jpg',
+  '/images/hero/sanitary-hero.jpg'
+];
+
 export default function Home() {
+  const [currentHeroImage, setCurrentHeroImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentHeroImage((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <main className="min-h-screen bg-white">
-      {/* 1. Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center bg-[#1a365d]">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1a365d] to-[#2563eb]/90">
+      {/* Hero Section with Image Carousel */}
+      <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-[#1a365d] to-[#2563eb] overflow-hidden">
+        {heroImages.map((img, index) => (
+          <motion.div
+            key={img}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ 
+              opacity: currentHeroImage === index ? 1 : 0,
+              scale: currentHeroImage === index ? 1.1 : 1
+            }}
+            transition={{ duration: 1.5 }}
+          >
           <Image
-            src="/images/hero/locksmith-hero.jpg"
-            alt="24/7 Notdienst"
+              src={img}
+              alt={`Notdienst Bild ${index + 1}`}
             fill
-            className="object-cover opacity-10"
-            priority
+              className="object-cover opacity-20"
+              priority={index === 0}
           />
-        </div>
+          </motion.div>
+        ))}
         
-        <div className="container relative z-10 py-20">
+        <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Ihr Experte für schnelle & zuverlässige Dienstleistungen!
-            </h1>
-            <div className="text-xl md:text-2xl text-[#60a5fa] font-semibold mb-6 flex flex-wrap justify-center gap-4">
-              <span>Schlüsseldienst</span>
-              <span>|</span>
-              <span>Rohrreinigung</span>
-              <span>|</span>
-              <span>Sanitär</span>
-              <span>|</span>
-              <span>Schädlingsbekämpfung</span>
-              <span>|</span>
-              <span>Elektro</span>
-            </div>
-            <h2 className="text-2xl md:text-4xl text-white font-bold mb-12">
-              24/7 Notdienst – In 30 Minuten vor Ort!
-            </h2>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-2 inline-block mb-6"
+            >
+              <span className="text-white font-medium flex items-center gap-2">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                24/7 Notdienst verfügbar
+              </span>
+            </motion.div>
 
-            <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-              <a 
-                href="tel:01111111111"
-                className="bg-[#2563eb] text-white hover:bg-[#1d4ed8] text-xl font-bold px-8 py-4 rounded-full inline-flex items-center space-x-3 transition-all shadow-xl"
-              >
-                <FaPhone className="text-xl" />
-                <span>Jetzt anrufen: 01111111111</span>
-              </a>
-              <Link 
-                href="/kontakt"
-                className="bg-white text-[#1a365d] hover:bg-[#1a365d] hover:text-white text-xl font-bold px-8 py-4 rounded-full inline-flex items-center space-x-3 transition-all shadow-xl"
-              >
-                <span>Soforthilfe anfordern</span>
-                <FaArrowRight />
-              </Link>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-4xl md:text-6xl font-bold text-white mb-6"
+            >
+              Ihr Experte für schnelle & zuverlässige Notdienste
+            </motion.h1>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-wrap justify-center gap-4 text-[#90cdf4] text-xl mb-8"
+            >
+              {[
+                { text: 'Schlüsseldienst', icon: <FaKey /> },
+                { text: 'Rohrreinigung', icon: <FaWrench /> },
+                { text: 'Sanitär', icon: <FaShower /> },
+                { text: 'Elektro', icon: <FaBolt /> }
+              ].map((service, index) => (
+                <motion.span
+                  key={service.text}
+                  className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full"
+                  whileHover={{ scale: 1.05 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 + index * 0.1 }}
+                >
+                  {service.icon}
+                  <span>{service.text}</span>
+                </motion.span>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 text-white"
+            >
+              {[
+                { number: '30', text: 'Minuten Reaktionszeit', icon: <FaClock /> },
+                { number: '24/7', text: 'Erreichbarkeit', icon: <FaCheckCircle /> },
+                { number: '100%', text: 'Festpreisgarantie', icon: <FaShieldAlt /> },
+                { number: '15+', text: 'Jahre Erfahrung', icon: <FaTools /> }
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.text}
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 relative overflow-hidden group"
+                  whileHover={{ scale: 1.05 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 + index * 0.1 }}
+                >
+                  <div className="absolute -right-4 -bottom-4 text-4xl text-white/10 group-hover:text-white/20 transition-colors">
+                    {stat.icon}
             </div>
+                  <div className="text-3xl font-bold text-[#90cdf4]">{stat.number}</div>
+                  <div className="text-sm">{stat.text}</div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <motion.a
+                href="tel:01111111111"
+                className="bg-white text-[#1a365d] hover:bg-[#90cdf4] px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FaPhone className="animate-pulse group-hover:rotate-12 transition-transform" />
+                <span>01111111111</span>
+              </motion.a>
+              <motion.a
+                href="https://wa.me/01111111111"
+                className="bg-[#25D366] text-white hover:bg-[#128C7E] px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FaWhatsapp className="group-hover:rotate-12 transition-transform" />
+                <span>WhatsApp Chat</span>
+              </motion.a>
+            </motion.div>
           </div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+        >
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+            <div className="w-1 h-3 bg-white/60 rounded-full"></div>
+          </div>
+        </motion.div>
       </section>
 
-      {/* 2. Dienstleistungen */}
-      <section className="py-20 bg-white">
+      {/* Services Section with Image Previews */}
+      <section className="py-20">
         <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#1a365d] mb-4">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <span className="inline-block bg-[#1a365d] text-white px-6 py-2 rounded-full mb-4">
               Unsere Dienstleistungen
+            </span>
+            <h2 className="text-4xl font-bold text-[#1a365d] mb-4">
+              Professionelle Lösungen für Ihre Probleme
             </h2>
-            <div className="w-24 h-1 bg-[#2563eb] mx-auto"></div>
-          </div>
+          </motion.div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: <FaKey />,
-                title: 'Schlüsseldienst – 24/7 Soforthilfe',
-                desc: 'Zugefallene Tür? Schlüssel verloren? Wir sind rund um die Uhr für Sie da – schnell & beschädigungsfrei.'
+                title: 'Schlüsseldienst',
+                desc: 'Türöffnung ohne Schäden, Schloss-Austausch & Einbruchschutz',
+                image: '/images/hero/locksmith-hero.jpg'
               },
               {
-                icon: <FaShower />,
-                title: 'Rohrreinigung – Verstopfungen beseitigen',
-                desc: 'Ob verstopfte Toilette, Waschbecken oder Abflussrohre – wir lösen jedes Problem fachgerecht.'
+                title: 'Rohrreinigung',
+                desc: 'Verstopfungen beseitigen, Kamera-Inspektion & Hochdruck-Reinigung',
+                image: '/images/hero/plumbing-hero.jpg'
               },
               {
-                icon: <FaWrench />,
-                title: 'Sanitär & Heizung – Installation & Reparatur',
-                desc: 'Von der Badmodernisierung bis zur Notfallreparatur – wir sind Ihr zuverlässiger Partner für Sanitärtechnik.'
+                title: 'Sanitär',
+                desc: 'Installation, Reparatur & Wartung von Sanitäranlagen',
+                image: '/images/hero/sanitary-hero.jpg'
               },
               {
-                icon: <FaBug />,
-                title: 'Schädlingsbekämpfung – Effektiv & nachhaltig',
-                desc: 'Ob Ratten, Kakerlaken oder Wespen – unsere Experten entfernen Schädlinge diskret & umweltfreundlich.'
+                title: 'Schädlingsbekämpfung',
+                desc: 'Professionelle & nachhaltige Schädlingsbekämpfung',
+                image: '/images/services/pest-control/unrecognizable-person-white-chemical-protection-suit-doing-disinfection-public-areas-stop-spreading-highly-contagious-corona-virus.jpg'
               },
               {
-                icon: <FaBolt />,
-                title: 'Elektro-Notdienst – Störungen & Installationen',
-                desc: 'Schnelle Hilfe bei Stromausfällen, Kurzschlüssen & Elektroinstallationen für Privathaushalte & Unternehmen.'
+                title: 'Elektro',
+                desc: 'Störungsbehebung, Installationen & Sicherheitsprüfungen',
+                image: '/images/services/electrical/electrician-builder-work-examines-cable-connection-electrical-line-fuselage-industrial-switchboard-professional-overalls-with-electrician-s-tool.jpg'
+              },
+              {
+                title: 'Weitere Dienste',
+                desc: 'Maßgeschneiderte Lösungen für Ihre Anforderungen',
+                image: ''
               }
-            ].map((service) => (
-              <div key={service.title} className="group">
-                <div className="bg-white border-2 border-[#e2e8f0] rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-2xl hover:border-[#2563eb]">
-                  <div className="bg-[#2563eb] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl">
-                    {service.icon}
+            ].map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                variants={scaleIn}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all group overflow-hidden"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  {service.image ? (
+                    <>
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+                    </>
+                  ) : (
+                    <div className="h-full bg-[#1a365d] flex items-center justify-center">
+                      <h3 className="text-xl font-bold text-white">{service.title}</h3>
+                    </div>
+                  )}
+                  {service.image && (
+                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                    </div>
+                  )}
                   </div>
-                  <h3 className="text-xl font-bold text-[#1a365d] mb-4">{service.title}</h3>
+                <div className="p-6">
                   <p className="text-gray-600 mb-6">{service.desc}</p>
                   <Link 
-                    href={`/services/${service.title.split(' ')[0].toLowerCase()}`}
-                    className="text-[#2563eb] hover:text-[#1d4ed8] font-semibold inline-flex items-center space-x-2"
+                    href={`/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    className="text-[#2563eb] hover:text-[#1a365d] font-medium flex items-center gap-2 group/link"
                   >
-                    <span>Mehr erfahren</span>
-                    <FaArrowRight />
+                    Mehr erfahren
+                    <FaArrowRight className="group-hover/link:translate-x-2 transition-transform" />
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3. Warum Uns */}
-      <section className="py-20 bg-[#f8fafc]">
-        <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-[#1a365d] mb-12">
-              Warum Sie uns wählen sollten?
+      {/* Trust Indicators with Animated Stats */}
+      <section className="py-20 bg-[#1a365d] text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/hero/locksmith-hero.jpg')] opacity-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1a365d] to-[#2563eb] opacity-90" />
+        <div className="container relative z-10">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4">
+              Warum Kunden uns vertrauen
             </h2>
-            <p className="text-xl text-gray-600 mb-12">
-              Wir sind Ihr zuverlässiger Partner für alle handwerklichen Dienstleistungen – kompetent, schnell & fair.
+            <p className="text-xl opacity-80">
+              Über 5000+ zufriedene Kunden in der Region
             </p>
+          </motion.div>
+
             <div className="grid md:grid-cols-3 gap-8">
               {[
-                { icon: <FaClock />, title: 'Schnell vor Ort', desc: 'In nur 30 Minuten bei Ihnen' },
-                { icon: <FaTools />, title: 'Faire Preise', desc: 'Keine versteckten Kosten' },
-                { icon: <FaShieldAlt />, title: 'Erfahrene Fachkräfte', desc: 'Geprüfte & zertifizierte Techniker' },
-              ].map((feature) => (
-                <div key={feature.title} className="bg-white p-6 rounded-xl shadow-lg">
-                  <div className="bg-[#2563eb] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-[#1a365d] mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.desc}</p>
-                </div>
-              ))}
-            </div>
+              {
+                title: "Schneller Service",
+                desc: "Innerhalb von 30 Minuten sind wir bei Ihnen vor Ort.",
+                icon: <FaClock />,
+                stat: "30 Min"
+              },
+              {
+                title: "Faire Preise",
+                desc: "Transparente Festpreise ohne versteckte Kosten.",
+                icon: <FaShieldAlt />,
+                stat: "100%"
+              },
+              {
+                title: "Erfahrene Profis",
+                desc: "Qualifizierte und zertifizierte Fachkräfte.",
+                icon: <FaTools />,
+                stat: "15+ Jahre"
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                variants={scaleIn}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl group hover:bg-white/20 transition-colors"
+              >
+                <motion.div 
+                  className="bg-white/10 w-16 h-16 rounded-full flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  {item.icon}
+                </motion.div>
+                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <p className="opacity-80 mb-4">{item.desc}</p>
+                <div className="text-3xl font-bold text-[#90cdf4]">{item.stat}</div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Einsatzgebiete */}
-      <section className="py-20 bg-white">
+      {/* Testimonials with Profile Images */}
+      <section className="py-20">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-[#1a365d] mb-8">
-              Unsere Einsatzgebiete
-            </h2>
-            <p className="text-xl text-gray-600 mb-12">
-              Wir sind deutschlandweit für Sie im Einsatz – mit regionalen Standorten in:
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              {['Berlin', 'Hamburg', 'München', 'Köln', 'Frankfurt', 'Düsseldorf', 'Stuttgart', 'Leipzig'].map((city) => (
-                <span key={city} className="bg-[#2563eb] text-white px-4 py-2 rounded-full">
-                  {city}
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <span className="inline-block bg-[#1a365d] text-white px-6 py-2 rounded-full mb-4">
+              Kundenstimmen
                 </span>
-              ))}
-            </div>
-            <p className="text-xl font-semibold text-[#1a365d]">
-              Ihr Standort nicht dabei? Rufen Sie uns an – wir helfen deutschlandweit!
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Kundenmeinungen */}
-      <section className="py-20 bg-[#f8fafc]">
-        <div className="container">
-          <div className="text-center mb-16">
-            <div className="flex justify-center text-[#2563eb] text-3xl mb-4">
-              <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
-            </div>
             <h2 className="text-4xl font-bold text-[#1a365d] mb-4">
               Das sagen unsere Kunden
             </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                text: 'Super Service! Der Techniker war in 20 Minuten da und hat meine Tür in Sekunden geöffnet – ohne Schäden!',
-                location: 'Berlin'
+                text: "Schneller und professioneller Service. In 20 Minuten war der Techniker da und hat das Problem gelöst.",
+                author: "Thomas M.",
+                location: "Paderborn",
+                image: "/images/testimonials/person-1.jpg",
+                service: "Schlüsseldienst"
               },
               {
-                text: 'Schnelle Rohrreinigung! Mein Waschbecken war verstopft – innerhalb von 30 Minuten lief alles wieder perfekt.',
-                location: 'München'
+                text: "Faire Preise und top Beratung. Der Handwerker hat sich Zeit genommen und alles erklärt.",
+                author: "Sarah K.",
+                location: "Delbrück",
+                image: "/images/testimonials/person-2.jpg",
+                service: "Sanitär"
               },
               {
-                text: 'Zuverlässig & fair! Der Elektriker hat mein Problem schnell gelöst und alles super erklärt. Sehr empfehlenswert!',
-                location: 'Frankfurt'
+                text: "Auch am Sonntag schnell zur Stelle und sehr kompetent. Absolut empfehlenswert!",
+                author: "Michael B.",
+                location: "Salzkotten",
+                image: "/images/testimonials/person-3.jpg",
+                service: "Elektro"
               }
             ].map((review, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-lg">
-                <div className="text-[#2563eb] text-xl mb-4">
-                  <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+              <motion.div
+                key={review.author}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                variants={scaleIn}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white p-8 rounded-2xl shadow-lg group hover:shadow-2xl transition-all"
+              >
+                <div className="flex text-[#FFD700] mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.1 * i }}
+                    >
+                      <FaStar />
+                    </motion.div>
+                  ))}
                 </div>
-                <p className="text-gray-600 mb-4">"{review.text}"</p>
-                <div className="flex items-center text-[#1a365d]">
-                  <FaMapMarkerAlt className="mr-2" />
-                  <span>Kunde aus {review.location}</span>
+                <p className="text-gray-600 mb-6">{review.text}</p>
+                <div className="flex items-center gap-4">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden">
+                    <Image
+                      src={review.image}
+                      alt={review.author}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-bold text-[#1a365d]">{review.author}</div>
+                    <div className="text-gray-500 flex items-center gap-1">
+                      <FaMapMarkerAlt className="text-sm" />
+                      {review.location}
+                    </div>
+                    <div className="text-[#2563eb] text-sm">{review.service}</div>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 6. Kontakt & CTA */}
-      <section className="py-20 bg-[#1a365d] text-white">
-        <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6">
-              Schnelle Hilfe – Jetzt Kontakt aufnehmen!
-            </h2>
-            <p className="text-xl mb-12">
-              Haben Sie eine dringende Anfrage oder möchten Sie mehr über unsere Dienstleistungen erfahren?
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="flex items-center justify-center space-x-3">
-                <FaPhone className="text-2xl text-[#60a5fa]" />
-                <div className="text-left">
-                  <div className="font-bold">Notfallnummer</div>
-                  <div>01111111111</div>
-                </div>
-              </div>
-              <div className="flex items-center justify-center space-x-3">
-                <FaEnvelope className="text-2xl text-[#60a5fa]" />
-                <div className="text-left">
-                  <div className="font-bold">E-Mail</div>
-                  <div>kontakt@service.de</div>
-                </div>
-              </div>
-              <div className="flex items-center justify-center space-x-3">
-                <FaBuilding className="text-2xl text-[#60a5fa]" />
-                <div className="text-left">
-                  <div className="font-bold">Standort</div>
-                  <div>Musterstr. 123, Berlin</div>
-                </div>
-              </div>
-            </div>
-
-            <Link 
-              href="/kontakt"
-              className="bg-[#2563eb] text-white hover:bg-[#1d4ed8] text-xl font-bold px-12 py-6 rounded-full inline-flex items-center space-x-3 transition-all shadow-xl"
+      {/* CTA Section with Background Video */}
+      <section className="py-20 bg-gradient-to-br from-[#1a365d] to-[#2563eb] text-white relative overflow-hidden">
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-20"
+          >
+            <source src="/videos/service-bg.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="container relative z-10">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 100 }}
+              className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8"
             >
-              <span>Kontaktformular öffnen</span>
-              <FaArrowRight />
-            </Link>
-          </div>
+              <FaPhone className="text-[#1a365d] text-3xl animate-pulse" />
+            </motion.div>
+            <h2 className="text-4xl font-bold mb-6">
+              24/7 Notdienst - Wir sind für Sie da!
+            </h2>
+            <p className="text-xl mb-8 opacity-90">
+              Schnelle & professionelle Hilfe garantiert. Rufen Sie uns jetzt an!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.a
+                href="tel:01111111111"
+                className="bg-white text-[#1a365d] hover:bg-[#90cdf4] px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FaPhone className="animate-pulse group-hover:rotate-12 transition-transform" />
+                <span>01111111111</span>
+              </motion.a>
+              <motion.a
+                href="https://wa.me/01111111111"
+                className="bg-[#25D366] text-white hover:bg-[#128C7E] px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FaWhatsapp className="group-hover:rotate-12 transition-transform" />
+                <span>WhatsApp Chat</span>
+              </motion.a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Mobile Call Button */}
-      <a
+      {/* Fixed Call Button with Pulse Effect */}
+      <motion.a
         href="tel:01111111111"
-        className="fixed bottom-8 right-8 md:hidden bg-[#2563eb] text-white p-6 rounded-full shadow-2xl hover:bg-[#1d4ed8] transition-all z-50 animate-bounce"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        whileHover={{ scale: 1.1 }}
+        className="fixed bottom-6 right-6 bg-[#1a365d] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg md:hidden z-50"
       >
-        <FaPhone className="text-3xl" />
-      </a>
+        <div className="absolute inset-0 bg-[#1a365d] rounded-full animate-ping opacity-25"></div>
+        <FaPhone className="text-2xl animate-pulse" />
+      </motion.a>
     </main>
   );
 } 

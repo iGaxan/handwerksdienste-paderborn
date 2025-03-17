@@ -118,6 +118,17 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-700">
           <div className="text-center text-sm text-gray-400">
             <p>&copy; {new Date().getFullYear()} Notdienst. Alle Rechte vorbehalten.</p>
+            <p className="mt-2">
+              Website erstellt von{' '}
+              <a 
+                href="https://antrieb2punkt0.de/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-[#60a5fa] transition-colors"
+              >
+                Antrieb 2.0 UG
+              </a>
+            </p>
           </div>
         </div>
       </div>
