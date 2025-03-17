@@ -31,9 +31,10 @@ const HeroSection = ({ title, subtitle }: { title: string, subtitle: string }) =
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-[#4285f4] text-white px-6 py-2 rounded-full font-medium"
+          className="bg-[#4285f4] text-white px-6 py-2 rounded-full font-medium whitespace-nowrap text-sm sm:text-base"
         >
-          24/7 Notdienst verfügbar
+          <span className="hidden sm:inline">24/7 Notdienst verfügbar</span>
+          <span className="sm:hidden">24/7 Notdienst</span>
         </motion.div>
       </div>
 
