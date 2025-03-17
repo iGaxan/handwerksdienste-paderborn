@@ -27,7 +27,7 @@ export default function CityPageClient({ params }: Props) {
     '@id': `https://www.example.com/${params.city}#LocalBusiness`,
     name: `24/7 Handwerker & Notdienst ${cityName}`,
     image: 'https://www.example.com/images/logo.webp',
-    telephone: '015735989735',
+    telephone: '01111111111',
     priceRange: '€€',
     address: {
       '@type': 'PostalAddress',
@@ -88,7 +88,7 @@ export default function CityPageClient({ params }: Props) {
               </p>
               <div className="flex flex-col md:flex-row gap-6 justify-center">
                 <a 
-                  href="tel:015735989735"
+                  href="tel:01111111111"
                   className="group bg-[#2563eb] hover:bg-white hover:text-[#2563eb] text-white px-8 py-4 rounded-full inline-flex items-center justify-center space-x-3 transition-all"
                 >
                   <FaPhone className="text-xl" />

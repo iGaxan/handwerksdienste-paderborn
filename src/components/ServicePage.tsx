@@ -127,7 +127,7 @@ const HeroSection = ({ title, subtitle }: { title: string, subtitle: string }) =
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
-            href="tel:015735989735"
+            href="tel:01111111111"
             className="bg-[#4285f4] hover:bg-[#3367d6] text-white px-8 py-4 rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2"
           >
             <FaPhone /> Kostenlos anfragen

@@ -57,11 +57,11 @@ export default function Home() {
 
             <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
               <a 
-                href="tel:015735989735"
+                href="tel:01111111111"
                 className="bg-[#2563eb] text-white hover:bg-[#1d4ed8] text-xl font-bold px-8 py-4 rounded-full inline-flex items-center space-x-3 transition-all shadow-xl"
               >
                 <FaPhone className="text-xl" />
-                <span>Jetzt anrufen: 015735989735</span>
+                <span>Jetzt anrufen: 01111111111</span>
               </a>
               <Link 
                 href="/kontakt"
@@ -245,7 +245,7 @@ export default function Home() {
                 <FaPhone className="text-2xl text-[#60a5fa]" />
                 <div className="text-left">
                   <div className="font-bold">Notfallnummer</div>
-                  <div>015735989735</div>
+                  <div>01111111111</div>
                 </div>
               </div>
               <div className="flex items-center justify-center space-x-3">
@@ -277,7 +277,7 @@ export default function Home() {
 
       {/* Mobile Call Button */}
       <a
-        href="tel:015735989735"
+        href="tel:01111111111"
         className="fixed bottom-8 right-8 md:hidden bg-[#2563eb] text-white p-6 rounded-full shadow-2xl hover:bg-[#1d4ed8] transition-all z-50 animate-bounce"
       >
         <FaPhone className="text-3xl" />
