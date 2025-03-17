@@ -60,9 +60,10 @@ export default function SchaedlingsbekaempfungPage() {
     <ServicePage
       title="Professionelle Schädlingsbekämpfung & Prävention"
       subtitle="Schnelle und diskrete Schädlingsbekämpfung mit nachhaltigen Methoden. Zertifizierte Experten für alle Arten von Schädlingen."
-      heroImage="/images/schaedlingsbekaempfung-hero.jpg"
+      heroImage="/images/hero/pest-control-hero.jpg"
       services={services}
       benefits={benefits}
+      serviceVideo="/images/services/pest-control/1115209_Virus_Cleaning_3840x2160.mp4"
     />
   );
 } 

@@ -60,9 +60,10 @@ export default function SchluessseldienstPage() {
     <ServicePage
       title="Schlüsseldienst & Türöffnung"
       subtitle="Ihr professioneller Schlüsseldienst für schnelle und schadenfreie Türöffnungen. 24/7 Notdienst mit Festpreisgarantie und 20-30 Minuten Reaktionszeit."
-      heroImage="/images/schluesseldienst-hero.jpg"
+      heroImage="/images/hero/locksmith-hero.jpg"
       services={services}
       benefits={benefits}
+      serviceVideo="/images/services/locksmith/998121_Keyhole_Lock_1920x1080.mp4"
     />
   );
 } 

@@ -60,9 +60,13 @@ export default function SanitaerPage() {
     <ServicePage
       title="Sanitär-Installation & Reparatur"
       subtitle="Ihr kompetenter Partner für alle Sanitärarbeiten. Von der Notfall-Reparatur bis zur kompletten Badsanierung."
-      heroImage="/images/sanitaer-hero.jpg"
+      heroImage="/images/hero/sanitary-hero.jpg"
       services={services}
       benefits={benefits}
+      serviceVideo="/images/services/sanitary/5998070_People_Person_3840x2160.mp4"
+      serviceImages={[
+        "/images/services/sanitary/plumbing-professional-doing-his-job (1).jpg"
+      ]}
     />
   );
 } 

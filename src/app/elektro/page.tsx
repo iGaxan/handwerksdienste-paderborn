@@ -60,7 +60,7 @@ export default function ElektroPage() {
     <ServicePage
       title="Elektroinstallation & Reparatur"
       subtitle="Ihr Elektrofachbetrieb für alle elektrischen Installationen und Reparaturen. 24/7 Notdienst und höchste Sicherheitsstandards."
-      heroImage="/images/elektro-hero.jpg"
+      heroImage="/images/hero/electrical-hero.jpg"
       services={services}
       benefits={benefits}
     />

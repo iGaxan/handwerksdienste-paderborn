@@ -60,9 +60,10 @@ export default function RohrreinigungPage() {
     <ServicePage
       title="Rohrreinigung & Verstopfungen"
       subtitle="Professionelle Rohrreinigung und Verstopfungsbeseitigung"
-      heroImage="/images/rohrreinigung-hero.jpg"
+      heroImage="/images/hero/plumbing-hero.jpg"
       services={services}
       benefits={benefits}
+      serviceVideo="/images/services/plumbing/6006374_People_Person_3840x2160.mp4"
     />
   );
 }

@@ -102,7 +102,7 @@ export default function Home() {
               className="flex flex-wrap justify-center gap-4 text-[#90cdf4] text-xl mb-8"
             >
               {[
-                { text: 'Schlüsseldienst', icon: <FaKey /> },
+                { text: 'schluesseldienst', icon: <FaKey /> },
                 { text: 'Rohrreinigung', icon: <FaWrench /> },
                 { text: 'Sanitär', icon: <FaShower /> },
                 { text: 'Elektro', icon: <FaBolt /> }
@@ -211,7 +211,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: 'Schlüsseldienst',
+                title: 'schluesseldienst',
                 desc: 'Türöffnung ohne Schäden, Schloss-Austausch & Einbruchschutz',
                 image: '/images/hero/locksmith-hero.jpg'
               },
@@ -221,12 +221,12 @@ export default function Home() {
                 image: '/images/hero/plumbing-hero.jpg'
               },
               {
-                title: 'Sanitär',
+                title: 'Sanitaer',
                 desc: 'Installation, Reparatur & Wartung von Sanitäranlagen',
                 image: '/images/hero/sanitary-hero.jpg'
               },
               {
-                title: 'Schädlingsbekämpfung',
+                title: 'schaedlingsbekaempfung',
                 desc: 'Professionelle & nachhaltige Schädlingsbekämpfung',
                 image: '/images/services/pest-control/unrecognizable-person-white-chemical-protection-suit-doing-disinfection-public-areas-stop-spreading-highly-contagious-corona-virus.jpg'
               },
@@ -379,7 +379,7 @@ export default function Home() {
                 author: "Thomas M.",
                 location: "Paderborn",
                 image: "/images/testimonials/person-1.jpg",
-                service: "Schlüsseldienst"
+                service: "schluesseldienst"
               },
               {
                 text: "Faire Preise und top Beratung. Der Handwerker hat sich Zeit genommen und alles erklärt.",

@@ -17,6 +17,8 @@ interface ServicePageProps {
   heroImage: string;
   services: Service[];
   benefits: string[];
+  serviceImages?: string[];
+  serviceVideo?: string;
 }
 
 const fadeInUp = {
@@ -24,97 +26,137 @@ const fadeInUp = {
   animate: { opacity: 1, y: 0 }
 };
 
-const HeroSection = ({ title, subtitle }: { title: string, subtitle: string }) => {
+const HeroSection = ({ title, subtitle, heroImage, serviceVideo }: { title: string, subtitle: string, heroImage: string, serviceVideo?: string }) => {
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-[#1a365d] to-[#2563eb] text-center px-4">
-      <div className="absolute sm:top-20 top-4 left-1/2 transform -translate-x-1/2">
+    <section className="relative min-h-[80vh] flex items-center justify-center text-center px-4">
+      {/* Video Background */}
+      {serviceVideo && (
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={serviceVideo} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+      )}
+
+      {/* Hero Image Fallback */}
+      {!serviceVideo && (
+        <div className="absolute inset-0 w-full h-full">
+          <Image
+            src={heroImage}
+            alt={title}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+      )}
+
+      <div className="relative z-20 max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-[#4285f4] text-white px-6 py-2 rounded-full font-medium whitespace-nowrap text-sm sm:text-base"
+          className="bg-[#1a365d] text-white px-6 py-2 rounded-full font-medium whitespace-nowrap text-sm sm:text-base inline-block mb-8"
         >
           <span className="hidden sm:inline">24/7 Notdienst verfügbar</span>
           <span className="sm:hidden">24/7 Notdienst</span>
         </motion.div>
-      </div>
 
-      <div className="max-w-4xl mx-auto sm:mt-0 mt-16">
         {/* Desktop Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="hidden sm:block text-4xl md:text-6xl font-bold text-white mb-4"
+          className="hidden sm:block text-4xl md:text-6xl font-bold text-white mb-6"
         >
-          <span className="text-white">
-            {title.split('&')[0].trim()}
-            <span className="mx-2">&</span>
-            <span className="text-[#90cdf4]">
-              {title.split('&')[1]?.trim()}
-            </span>
-          </span>
+          {title.includes('&') ? (
+            <>
+              {title.split('&')[0].trim()}
+              <span className="mx-2">&</span>
+              <span className="text-blue-300">
+                {title.split('&')[1]?.trim()}
+              </span>
+            </>
+          ) : (
+            title
+          )}
         </motion.h1>
 
         {/* Mobile Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="block sm:hidden text-4xl font-bold text-white mb-4"
+          className="block sm:hidden text-4xl font-bold text-white mb-6"
         >
           {title.includes('&') ? (
-            <span className="text-white">
+            <>
               {title.split('&')[0].trim()}
               <br />
-              <span className="text-[#90cdf4]">
+              <span className="text-blue-300">
                 {title.split('&')[1]?.trim()}
               </span>
-            </span>
+            </>
           ) : (
-            <span className="text-white">
-              {title}
-            </span>
+            title
           )}
         </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-white/90 text-xl mb-12 max-w-3xl mx-auto"
+        >
+          {subtitle}
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          transition={{ delay: 0.2 }}
           className="text-white text-xl mb-12"
         >
           <span className="inline-flex items-center gap-2">
-            Schnell <span className="text-[#90cdf4]">✓</span>
+            Schnell <span className="text-blue-300">✓</span>
           </span>
           {' '}
           <span className="inline-flex items-center gap-2">
-            Zuverlässig <span className="text-[#90cdf4]">✓</span>
+            Zuverlässig <span className="text-blue-300">✓</span>
           </span>
           {' '}
           <span className="inline-flex items-center gap-2">
-            Fair <span className="text-[#90cdf4]">✓</span>
+            Fair <span className="text-blue-300">✓</span>
           </span>
           {' '}
           <span className="inline-flex items-center gap-2">
-            Umweltfreundlich <span className="text-[#90cdf4]">✓</span>
+            Umweltfreundlich <span className="text-blue-300">✓</span>
           </span>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.3 }}
           className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12"
         >
           <div className="grid grid-cols-3 gap-8 text-white">
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-[#90cdf4] mb-2">15+</div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-300 mb-2">15+</div>
               <div className="text-sm">Jahre Erfahrung</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-[#90cdf4] mb-2">5000+</div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-300 mb-2">5000+</div>
               <div className="text-sm">Zufriedene Kunden</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-[#90cdf4] mb-2">100%</div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-300 mb-2">100%</div>
               <div className="text-sm">Festpreisgarantie</div>
             </div>
           </div>
@@ -123,12 +165,12 @@ const HeroSection = ({ title, subtitle }: { title: string, subtitle: string }) =
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
             href="tel:01111111111"
-            className="bg-[#4285f4] hover:bg-[#3367d6] text-white px-8 py-4 rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2"
+            className="bg-[#1a365d] hover:bg-[#2d4a7c] text-white px-8 py-4 rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2"
           >
             <FaPhone /> Kostenlos anfragen
           </a>
@@ -149,7 +191,9 @@ export default function ServicePage({
   subtitle = '', 
   heroImage = '/images/default-hero.jpg', 
   services = [], 
-  benefits = [] 
+  benefits = [], 
+  serviceImages, 
+  serviceVideo 
 }: ServicePageProps) {
   if (!title || !subtitle || !services.length || !benefits.length) {
     console.warn('ServicePage: Required props are missing');
@@ -157,7 +201,7 @@ export default function ServicePage({
 
   return (
     <main className="min-h-screen bg-gray-50">
-      <HeroSection title={title} subtitle={subtitle} />
+      <HeroSection title={title} subtitle={subtitle} heroImage={heroImage} serviceVideo={serviceVideo} />
 
       {/* Services Section */}
       {services.length > 0 && (
