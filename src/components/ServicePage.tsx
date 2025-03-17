@@ -4,11 +4,14 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FaPhone, FaWhatsapp, FaCheckCircle } from 'react-icons/fa';
 import ContactForm from '@/components/ContactForm';
+import ServiceCard from "./ServiceCard";
 
 interface Service {
   title: string;
   description: string;
   icon: JSX.Element;
+  href: string;
+  image: string;
 }
 
 interface ServicePageProps {
@@ -73,7 +76,7 @@ const HeroSection = ({ title, subtitle, heroImage, serviceVideo }: { title: stri
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="hidden sm:block text-4xl md:text-6xl font-bold text-white mb-6"
+          className="hidden sm:block text-3xl md:text-5xl font-bold text-white mb-6"
         >
           {title.includes('&') ? (
             <>
@@ -92,7 +95,7 @@ const HeroSection = ({ title, subtitle, heroImage, serviceVideo }: { title: stri
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="block sm:hidden text-4xl font-bold text-white mb-6"
+          className="block sm:hidden text-[2.2rem] font-bold text-white mb-6"
         >
           {title.includes('&') ? (
             <>
@@ -112,7 +115,7 @@ const HeroSection = ({ title, subtitle, heroImage, serviceVideo }: { title: stri
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-white/90 text-xl mb-12 max-w-3xl mx-auto"
+          className="text-white/90 text-base sm:text-xl mb-12 max-w-3xl mx-auto px-4"
         >
           {subtitle}
         </motion.p>
@@ -121,7 +124,7 @@ const HeroSection = ({ title, subtitle, heroImage, serviceVideo }: { title: stri
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-white text-xl mb-12"
+          className="text-white text-sm sm:text-xl mb-12 px-4"
         >
           <span className="inline-flex items-center gap-2">
             Schnell <span className="text-blue-300">✓</span>
@@ -166,19 +169,19 @@ const HeroSection = ({ title, subtitle, heroImage, serviceVideo }: { title: stri
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
         >
           <a
             href="tel:01111111111"
-            className="bg-[#1a365d] hover:bg-[#2d4a7c] text-white px-8 py-4 rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2"
+            className="bg-[#1a365d] hover:bg-[#2d4a7c] text-white px-8 py-5 text-lg rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto min-w-[250px]"
           >
-            <FaPhone /> Kostenlos anfragen
+            <FaPhone className="text-xl" /> Kostenlos anfragen
           </a>
           <a
             href="https://wa.me/4915735989735"
-            className="bg-[#25D366] hover:bg-[#128C7E] text-white px-8 py-4 rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2"
+            className="bg-[#25D366] hover:bg-[#128C7E] text-white px-8 py-5 text-lg rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto min-w-[250px]"
           >
-            <FaWhatsapp /> WhatsApp Anfrage
+            <FaWhatsapp className="text-xl" /> WhatsApp Anfrage
           </a>
         </motion.div>
       </div>
@@ -205,7 +208,7 @@ export default function ServicePage({
 
       {/* Services Section */}
       {services.length > 0 && (
-        <section className="py-20">
+        <section className="py-20 overflow-x-hidden">
           <div className="container mx-auto px-4">
             <motion.div 
               initial="initial"
@@ -221,26 +224,20 @@ export default function ServicePage({
                 Professioneller Service
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Wir bieten Ihnen maßgeschneiderte Lösungen für alle Ihre Anforderungen.
+                Wir bieten Ihnen erstklassige Dienstleistungen mit Qualitätsgarantie
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
               {services.map((service, index) => (
                 <motion.div
-                  key={index}
-                  initial="initial"
-                  whileInView="animate"
+                  key={service.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  variants={fadeInUp}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center text-[#1a365d] mb-6">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-[#1a365d] mb-4">{service.title}</h3>
-                  <p className="text-gray-600">{service.description}</p>
+                  <ServiceCard {...service} />
                 </motion.div>
               ))}
             </div>
