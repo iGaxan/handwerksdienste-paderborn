@@ -58,7 +58,7 @@ const benefits = [
 export default function RohrreinigungPage() {
   return (
     <ServicePage
-      title="Rohrreinigung<br>& Verstopfungen"
+      title="Rohrreinigung & Verstopfungen"
       subtitle="Professionelle Rohrreinigung und Verstopfungsbeseitigung"
       heroImage="/images/rohrreinigung-hero.jpg"
       services={services}

@@ -27,7 +27,7 @@ const fadeInUp = {
 const HeroSection = ({ title, subtitle }: { title: string, subtitle: string }) => {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-[#1a365d] to-[#2563eb] text-center px-4">
-      <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
+      <div className="absolute sm:top-20 top-4 left-1/2 transform -translate-x-1/2">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -37,11 +37,12 @@ const HeroSection = ({ title, subtitle }: { title: string, subtitle: string }) =
         </motion.div>
       </div>
 
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto sm:mt-0 mt-16">
+        {/* Desktop Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-6xl font-bold text-white mb-4"
+          className="hidden sm:block text-4xl md:text-6xl font-bold text-white mb-4"
         >
           <span className="text-white">
             {title.split('&')[0].trim()}
@@ -50,6 +51,27 @@ const HeroSection = ({ title, subtitle }: { title: string, subtitle: string }) =
               {title.split('&')[1]?.trim()}
             </span>
           </span>
+        </motion.h1>
+
+        {/* Mobile Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="block sm:hidden text-4xl font-bold text-white mb-4"
+        >
+          {title.includes('&') ? (
+            <span className="text-white">
+              {title.split('&')[0].trim()}
+              <br />
+              <span className="text-[#90cdf4]">
+                {title.split('&')[1]?.trim()}
+              </span>
+            </span>
+          ) : (
+            <span className="text-white">
+              {title}
+            </span>
+          )}
         </motion.h1>
 
         <motion.div
