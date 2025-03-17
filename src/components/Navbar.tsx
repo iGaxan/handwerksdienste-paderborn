@@ -155,69 +155,120 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div 
-        className={`md:hidden fixed top-[7.5rem] left-0 right-0 bg-[#003366] shadow-lg ${isOpen ? 'block' : 'hidden'}`}
+        className={`md:hidden fixed inset-0 bg-[#003366] z-50 transform transition-transform duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
       >
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex flex-col space-y-4">
+        {/* Mobile Menu Header */}
+        <div className="flex items-center justify-between p-4 border-b border-white/10">
+          <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
+            <span className="text-2xl font-bold text-white">
+              Notdienst
+            </span>
+          </Link>
+          <button
+            className="text-3xl text-white p-2"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsOpen(false);
+            }}
+          >
+            <FaTimes />
+          </button>
+        </div>
+
+        {/* Mobile Menu Content */}
+        <div className="h-full overflow-y-auto pb-20">
+          {/* Emergency Contact */}
+          <a 
+            href="tel:015735989735"
+            className="flex items-center justify-between p-4 bg-[#1a4d80] text-white"
+          >
+            <div className="flex items-center space-x-3">
+              <FaPhone className="text-xl animate-pulse" />
+              <span className="font-bold">24/7 Notdienst</span>
+            </div>
+            <span className="text-sm">015735989735</span>
+          </a>
+
+          {/* Navigation Links */}
+          <div className="p-4 space-y-6">
+            {/* Home */}
             <Link
               href="/"
-              className="flex items-center space-x-3 text-white hover:text-[#007BFF] transition-colors"
+              className="flex items-center space-x-3 text-white text-lg"
               onClick={() => setIsOpen(false)}
             >
               <FaHome className="text-xl" />
               <span>Home</span>
             </Link>
 
-            <div className="space-y-2">
-              <div className="flex items-center space-x-3 text-white font-medium">
+            {/* Services Section */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3 text-white text-lg">
                 <FaTools className="text-xl" />
                 <span>Dienstleistungen</span>
               </div>
-              <div className="pl-8 space-y-3">
+              <div className="grid grid-cols-2 gap-4 pl-8">
                 {mainServices.map((service) => (
                   <Link
                     key={service.href}
                     href={service.href}
-                    className="flex items-center space-x-3 text-white hover:text-[#007BFF] transition-colors py-3 border-b border-white/10 last:border-b-0"
+                    className="flex flex-col items-center p-4 bg-white/5 rounded-lg text-white hover:bg-white/10 transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
-                    <div className="bg-white/10 p-2 rounded-lg">
+                    <div className="bg-white/10 p-3 rounded-full mb-2">
                       {service.icon}
                     </div>
-                    <span className="font-medium">{service.name}</span>
+                    <span className="text-sm text-center">{service.name}</span>
                   </Link>
                 ))}
               </div>
             </div>
 
+            {/* About */}
             <Link
               href="/about"
-              className="flex items-center space-x-3 text-white hover:text-[#007BFF] transition-colors"
+              className="flex items-center space-x-3 text-white text-lg"
               onClick={() => setIsOpen(false)}
             >
               <FaInfoCircle className="text-xl" />
               <span>Über uns</span>
             </Link>
 
+            {/* Contact */}
             <Link
               href="/contact"
-              className="flex items-center space-x-3 text-white hover:text-[#007BFF] transition-colors"
+              className="flex items-center space-x-3 text-white text-lg"
               onClick={() => setIsOpen(false)}
             >
               <FaEnvelope className="text-xl" />
               <span>Kontakt</span>
             </Link>
+          </div>
 
-            <a 
-              href="https://wa.me/015735989735" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-3 text-white bg-[#1a4d80] hover:bg-[#007BFF] transition-colors px-4 py-2 rounded-full"
-              onClick={() => setIsOpen(false)}
-            >
-              <FaWhatsapp className="text-xl" />
-              <span>WhatsApp Chat</span>
-            </a>
+          {/* Bottom Actions */}
+          <div className="fixed bottom-0 left-0 right-0 p-4 bg-[#003366] border-t border-white/10">
+            <div className="flex gap-4">
+              <a 
+                href="tel:015735989735"
+                className="flex-1 bg-[#1a4d80] text-white px-4 py-3 rounded-full flex items-center justify-center space-x-2"
+                onClick={() => setIsOpen(false)}
+              >
+                <FaPhone className="text-xl" />
+                <span>Anrufen</span>
+              </a>
+              <a 
+                href="https://wa.me/015735989735"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 bg-[#25D366] text-white px-4 py-3 rounded-full flex items-center justify-center space-x-2"
+                onClick={() => setIsOpen(false)}
+              >
+                <FaWhatsapp className="text-xl" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
