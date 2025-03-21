@@ -58,11 +58,11 @@ export default function Navbar() {
             <span className="text-base">Ihr Notdienst in der Region</span>
           </div>
           <a 
-            href="tel:01111111111"
+            href="tel:017684536648"
             className="flex items-center space-x-3 text-white hover:text-[#007BFF] transition-colors font-bold ml-auto md:ml-0"
           >
             <FaPhone className="text-xl animate-pulse" />
-            <span className="text-base">24/7 Notdienst: 01111111111</span>
+            <span className="text-base">24/7 Notdienst: 017684536648</span>
           </a>
         </div>
       </div>
@@ -131,7 +131,7 @@ export default function Navbar() {
                 </Link>
 
                 <a 
-                  href="https://wa.me/01111111111" 
+                  href="https://wa.me/017684536648" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="bg-[#1a4d80] text-white px-5 py-2 rounded-full flex items-center space-x-2 hover:bg-[#007BFF] transition-colors shadow-lg ml-6"
@@ -181,14 +181,14 @@ export default function Navbar() {
         <div className="h-full overflow-y-auto pb-20">
           {/* Emergency Contact */}
           <a 
-            href="tel:01111111111"
+            href="tel:017684536648"
             className="flex items-center justify-between p-4 bg-[#1a4d80] text-white"
           >
             <div className="flex items-center space-x-3">
               <FaPhone className="text-xl animate-pulse" />
               <span className="font-bold">24/7 Notdienst</span>
             </div>
-            <span className="text-sm">01111111111</span>
+            <span className="text-sm">017684536648</span>
           </a>
 
           {/* Navigation Links */}
@@ -251,7 +251,7 @@ export default function Navbar() {
           <div className="fixed bottom-0 left-0 right-0 p-4 bg-[#003366] border-t border-white/10">
             <div className="flex gap-4">
               <a 
-                href="tel:01111111111"
+                href="tel:017684536648"
                 className="flex-1 bg-[#1a4d80] text-white px-4 py-3 rounded-full flex items-center justify-center space-x-2"
                 onClick={() => setIsOpen(false)}
               >
@@ -259,7 +259,7 @@ export default function Navbar() {
                 <span>Anrufen</span>
               </a>
               <a 
-                href="https://wa.me/01111111111"
+                href="https://wa.me/017684536648"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 bg-[#25D366] text-white px-4 py-3 rounded-full flex items-center justify-center space-x-2"

@@ -61,7 +61,7 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a 
-                href="tel:01111111111"
+                href="tel:017684536648"
                 className="bg-white text-[#1a365d] hover:bg-[#90cdf4] px-8 py-4 rounded-full font-bold transition-all flex items-center gap-2"
               >
                 <FaPhone className="animate-pulse" />
@@ -346,14 +346,14 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="tel:01111111111"
+                href="tel:017684536648"
                 className="bg-white text-[#1a365d] hover:bg-[#90cdf4] px-8 py-4 rounded-full font-bold transition-all flex items-center gap-2"
               >
                 <FaPhone className="animate-pulse" />
-                01111111111
+                017684536648
               </a>
               <a
-                href="https://wa.me/01111111111"
+                href="https://wa.me/017684536648"
                 className="bg-[#25D366] hover:bg-[#128C7E] px-8 py-4 rounded-full font-bold transition-all flex items-center gap-2"
               >
                 <FaEnvelope />

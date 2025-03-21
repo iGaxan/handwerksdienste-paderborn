@@ -172,7 +172,7 @@ const HeroSection = ({ title, subtitle, heroImage, serviceVideo }: { title: stri
           className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
         >
           <a
-            href="tel:01111111111"
+            href="tel:017684536648"
             className="bg-[#1a365d] hover:bg-[#2d4a7c] text-white px-8 py-5 text-lg rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto min-w-[250px]"
           >
             <FaPhone className="text-xl" /> Kostenlos anfragen

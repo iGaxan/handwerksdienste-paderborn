@@ -231,7 +231,7 @@ export default function ServicePage({ params }: Props) {
               className="flex flex-col md:flex-row gap-6 justify-center"
             >
               <a 
-                href="tel:01111111111"
+                href="tel:017684536648"
                 className="group bg-[#2563eb] text-white hover:bg-white hover:text-[#2563eb] text-xl font-bold px-8 py-4 rounded-full inline-flex items-center justify-center space-x-3 transition-all shadow-xl"
               >
                 <FaPhone className="text-xl group-hover:animate-ping" />
@@ -338,11 +338,11 @@ export default function ServicePage({ params }: Props) {
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
               <a 
-                href="tel:01111111111"
+                href="tel:017684536648"
                 className="bg-white text-[#1a365d] hover:bg-[#2563eb] hover:text-white px-8 py-4 rounded-full inline-flex items-center justify-center space-x-3 transition-all font-bold"
               >
                 <FaPhone className="text-xl" />
-                <span>01111111111</span>
+                <span>017684536648</span>
               </a>
               <a 
                 href="https://wa.me/4915735989735"

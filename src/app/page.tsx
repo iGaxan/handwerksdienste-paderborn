@@ -157,16 +157,16 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <motion.a
-                href="tel:01111111111"
+                href="tel:017684536648"
                 className="bg-white text-[#1a365d] hover:bg-[#90cdf4] px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <FaPhone className="animate-pulse group-hover:rotate-12 transition-transform" />
-                <span>01111111111</span>
+                <span>017684536648</span>
               </motion.a>
               <motion.a
-                href="https://wa.me/01111111111"
+                href="https://wa.me/017684536648"
                 className="bg-[#25D366] text-white hover:bg-[#128C7E] px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -480,16 +480,16 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
-                href="tel:01111111111"
+                href="tel:017684536648"
                 className="bg-white text-[#1a365d] hover:bg-[#90cdf4] px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <FaPhone className="animate-pulse group-hover:rotate-12 transition-transform" />
-                <span>01111111111</span>
+                <span>017684536648</span>
               </motion.a>
               <motion.a
-                href="https://wa.me/01111111111"
+                href="https://wa.me/017684536648"
                 className="bg-[#25D366] text-white hover:bg-[#128C7E] px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -504,7 +504,7 @@ export default function Home() {
 
       {/* Fixed Call Button with Pulse Effect */}
       <motion.a
-        href="tel:01111111111"
+        href="tel:017684536648"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         whileHover={{ scale: 1.1 }}

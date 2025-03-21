@@ -132,14 +132,14 @@ export default function DienstleistungenPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:01111111111"
+              href="tel:017684536648"
               className="bg-[#1a365d] text-white px-8 py-4 rounded-full font-bold hover:bg-[#2563eb] transition-colors inline-flex items-center justify-center space-x-2"
             >
               <FaWrench className="text-xl" />
               <span>Jetzt anrufen</span>
             </a>
             <a
-              href="https://wa.me/01111111111"
+              href="https://wa.me/017684536648"
               className="bg-[#25D366] text-white px-8 py-4 rounded-full font-bold hover:bg-[#128C7E] transition-colors inline-flex items-center justify-center space-x-2"
             >
               <FaWrench className="text-xl" />

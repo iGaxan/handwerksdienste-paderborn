@@ -41,8 +41,8 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center">
                 <FaPhone className="mr-2" />
-                <a href="tel:01111111111" className="hover:text-[#60a5fa]">
-                  01111111111
+                <a href="tel:017684536648" className="hover:text-[#60a5fa]">
+                  017684536648
                 </a>
               </li>
               <li className="flex items-center">
@@ -107,7 +107,7 @@ export default function Footer() {
                 <a href="#" className="hover:text-[#60a5fa]" aria-label="LinkedIn">
                   <FaLinkedin className="text-2xl" />
                 </a>
-                <a href="https://wa.me/01111111111" className="hover:text-[#60a5fa]" aria-label="WhatsApp">
+                <a href="https://wa.me/017684536648" className="hover:text-[#60a5fa]" aria-label="WhatsApp">
                   <FaWhatsapp className="text-2xl" />
                 </a>
               </div>

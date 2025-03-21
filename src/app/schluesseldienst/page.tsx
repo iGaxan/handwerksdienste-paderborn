@@ -1,69 +1,108 @@
-'use client';
+import { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import SchluesseldienstClient from './SchluesseldienstClient';
 
-import ServicePage from '@/components/ServicePage';
-import { 
-  FaKey, 
-  FaLock, 
-  FaShieldAlt, 
-  FaTools, 
-  FaDoorOpen, 
-  FaHome 
-} from 'react-icons/fa';
-
-const services = [
-  {
-    title: "Türöffnung ohne Schäden",
-    description: "Professionelle Türöffnung bei Aussperrung - schnell und ohne Beschädigung Ihrer Tür.",
-    icon: <FaDoorOpen className="text-3xl" />
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://ihre-domain.de/schluesseldienst",
+  "name": "24/7 Schlüsseldienst",
+  "image": "/images/hero/locksmith-hero.jpg",
+  "description": "Ihr professioneller Schlüsseldienst für schnelle und schadenfreie Türöffnungen. 24/7 Notdienst mit Festpreisgarantie und 20-30 Minuten Reaktionszeit.",
+  "priceRange": "€€",
+  "telephone": "+49176 84536648",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
   },
-  {
-    title: "Schloss-Austausch",
-    description: "Austausch und Reparatur von Schließzylindern und Schlössern aller Art.",
-    icon: <FaLock className="text-3xl" />
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Hatzfelder Str. 68 E",
+    "addressLocality": "Paderborn",
+    "postalCode": "33104",
+    "addressCountry": "DE"
   },
-  {
-    title: "Einbruchschutz",
-    description: "Sicherheitsberatung und Installation von einbruchhemmenden Systemen.",
-    icon: <FaShieldAlt className="text-3xl" />
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "51.123456",
+    "longitude": "7.123456"
   },
-  {
-    title: "Schließanlagen",
-    description: "Installation und Wartung von mechanischen und elektronischen Schließanlagen.",
-    icon: <FaKey className="text-3xl" />
-  },
-  {
-    title: "Notfall-Service",
-    description: "24/7 Notdienst bei Aussperrung, defekten Schlössern oder nach Einbruch.",
-    icon: <FaTools className="text-3xl" />
-  },
-  {
-    title: "Smart Home Security",
-    description: "Beratung und Installation von digitalen Zutrittssystemen und Smart Locks.",
-    icon: <FaHome className="text-3xl" />
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Schlüsseldienst Leistungen",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Türöffnung ohne Schäden",
+          "description": "Professionelle Türöffnung bei Aussperrung - schnell und ohne Beschädigung Ihrer Tür."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Tresoröffnung & Auto",
+          "description": "Professionelle Öffnung von Tresoren und Fahrzeugen - schnell und ohne Beschädigung."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Schlüsselanfertigung",
+          "description": "Anfertigung von Schlüsseln aller Art - präzise und zuverlässig."
+        }
+      }
+    ]
   }
-];
+};
 
-const benefits = [
-  "24/7 Notdienst - Tag und Nacht für Sie da",
-  "Festpreisgarantie ohne versteckte Kosten",
-  "Anfahrt innerhalb von 20-30 Minuten",
-  "Schadenfreie Türöffnung",
-  "Ausgebildete Fachkräfte mit jahrelanger Erfahrung",
-  "Modernste Werkzeuge und Techniken",
-  "Kostenlose Sicherheitsberatung",
-  "TÜV-geprüfte Schlösser und Schließanlagen",
-  "Rechnung mit Garantie"
-];
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Schlüsseldienst 24/7 | Professionelle Türöffnung & Schlüsselanfertigung',
+    description: 'Ihr professioneller Schlüsseldienst für schnelle und schadenfreie Türöffnungen. ✓ 24/7 Notdienst ✓ Festpreisgarantie ✓ Tresoröffnung ✓ Schlüsselanfertigung ✓ Autoöffnung. Jetzt anrufen!',
+    keywords: 'Schlüsseldienst, Türöffnung, Schloss-Austausch, Tresoröffnung, Autoöffnung, Schlüsselanfertigung, Einbruchschutz, Schließanlagen, Notdienst, 24/7 Service, Festpreis',
+    openGraph: {
+      title: 'Schlüsseldienst 24/7 | Professionelle Türöffnung & Schlüsselanfertigung',
+      description: 'Ihr professioneller Schlüsseldienst für schnelle und schadenfreie Türöffnungen. ✓ 24/7 Notdienst ✓ Festpreisgarantie ✓ Tresoröffnung ✓ Schlüsselanfertigung ✓ Autoöffnung.',
+      images: ['/images/hero/locksmith-hero.jpg'],
+      type: 'website',
+      locale: 'de_DE',
+    },
+    alternates: {
+      canonical: 'https://ihre-domain.de/schluesseldienst',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
 
 export default function SchluessseldienstPage() {
   return (
-    <ServicePage
-      title="Schlüsseldienst & Türöffnung"
-      subtitle="Ihr professioneller Schlüsseldienst für schnelle und schadenfreie Türöffnungen. 24/7 Notdienst mit Festpreisgarantie und 20-30 Minuten Reaktionszeit."
-      heroImage="/images/hero/locksmith-hero.jpg"
-      services={services}
-      benefits={benefits}
-      serviceVideo="/images/services/locksmith/998121_Keyhole_Lock_1920x1080.mp4"
-    />
+    <>
+      <JsonLd data={schemaData} />
+      <SchluesseldienstClient />
+    </>
   );
 } 
