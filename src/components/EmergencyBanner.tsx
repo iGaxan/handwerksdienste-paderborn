@@ -14,6 +14,18 @@ export default function EmergencyBanner() {
         subtitle: "Wir sind sofort für Sie da!"
       };
     }
+    if (pathname?.includes('elektro')) {
+      return {
+        title: "⚡ Stromausfall?",
+        subtitle: "Elektro-Notdienst 24/7!"
+      };
+    }
+    if (pathname?.includes('entruempelung')) {
+      return {
+        title: "🚛 Express-Entrümpelung?",
+        subtitle: "In 24h erledigt!"
+      };
+    }
     return {
       title: "Ausgesperrt?",
       subtitle: "Wir sind sofort für Sie da!"
@@ -53,8 +65,7 @@ export default function EmergencyBanner() {
             >
               <FaPhone className="text-base" />
               <div className="hidden md:flex flex-col items-center leading-tight">
-                <span>0176 8453</span>
-                <span>6648</span>
+                <span>0176 84536648</span>
               </div>
               <span className="md:hidden">0176 84536648</span>
             </motion.a>

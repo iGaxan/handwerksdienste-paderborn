@@ -6,7 +6,7 @@ const schemaData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://ihre-domain.de/rohrreinigung",
-  "name": "24/7 Rohrreinigung Notdienst",
+  "name": "Rohrreinigung Paderborn – 24h Notdienst",
   "image": "/images/hero/plumber-hero.jpg",
   "description": "Professioneller Rohrreinigungsservice mit 24/7 Notdienst für Verstopfungen, Kanalreinigung und Rohrbruch-Reparaturen. 5 Jahre Garantie auf alle Arbeiten.",
   "url": "https://ihre-domain.de/rohrreinigung",

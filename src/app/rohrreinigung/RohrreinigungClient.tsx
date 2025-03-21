@@ -10,7 +10,7 @@ const services = [
   {
     title: "Notfall-Rohrreinigung",
     description: "24/7 Soforthilfe bei verstopften Rohren und Abflüssen. Schnelle Reaktionszeit und professionelle Entstopfung.",
-    icon: <FaWrench className="text-4xl text-blue-600" />,
+    icon: <FaWrench className="text-4xl text-white" />,
     benefits: ["24/7 Notdienst", "Schnelle Reaktionszeit", "Festpreisgarantie"],
     href: "/rohrreinigung#notfall",
     image: "/images/services/plumbing/emergency.jpg"
@@ -18,7 +18,7 @@ const services = [
   {
     title: "Kanalreinigung",
     description: "Professionelle Reinigung von Hausanschlüssen und Kanälen. Beseitigung von Verstopfungen und Ablagerungen im Kanalsystem.",
-    icon: <FaIndustry className="text-4xl text-blue-600" />,
+    icon: <FaIndustry className="text-4xl text-white" />,
     benefits: ["Hochdruckreinigung", "Wurzelentfernung", "Kanalsanierung"],
     href: "/rohrreinigung#kanal",
     image: "/images/services/plumbing/sewer.jpg"
@@ -26,7 +26,7 @@ const services = [
   {
     title: "Abflussreinigung",
     description: "Professionelle Reinigung von Waschbecken, Duschen, Badewannen und Toiletten. Nachhaltige Beseitigung von Verstopfungen.",
-    icon: <FaShower className="text-4xl text-blue-600" />,
+    icon: <FaShower className="text-4xl text-white" />,
     benefits: ["Modernste Technik", "Gründliche Reinigung", "Verstopfungsprävention"],
     href: "/rohrreinigung#abfluss",
     image: "/images/services/plumbing/drain.jpg"
@@ -34,7 +34,7 @@ const services = [
   {
     title: "Rohrbruch-Reparatur",
     description: "Schnelle und zuverlässige Reparatur von Rohrbrüchen. Modernste Ortungstechnik und professionelle Schadensbehebung.",
-    icon: <FaHardHat className="text-4xl text-blue-600" />,
+    icon: <FaHardHat className="text-4xl text-white" />,
     benefits: ["Notfall-Service", "Präzise Ortung", "Garantierte Reparatur"],
     href: "/rohrreinigung#rohrbruch",
     image: "/images/services/plumbing/pipe-break.jpg"
@@ -42,7 +42,7 @@ const services = [
   {
     title: "Rohrverlegung",
     description: "Fachgerechte Installation und Verlegung neuer Rohrleitungen. Von der Planung bis zur fertigen Montage aus einer Hand.",
-    icon: <GiPipes className="text-4xl text-blue-600" />,
+    icon: <GiPipes className="text-4xl text-white" />,
     benefits: ["Qualitätsmaterialien", "Fachgerechte Montage", "Langlebige Lösungen"],
     href: "/rohrreinigung#verlegung",
     image: "/images/services/plumbing/pipe-laying.jpg"
@@ -50,7 +50,7 @@ const services = [
   {
     title: "Hochdruck-Reinigung",
     description: "Effektive Hochdruckreinigung für hartnäckige Verstopfungen. Beseitigt auch festsitzende Ablagerungen zuverlässig.",
-    icon: <FaWater className="text-4xl text-blue-600" />,
+    icon: <FaWater className="text-4xl text-white" />,
     benefits: ["Hochdrucktechnik", "Für alle Rohrgrößen", "Nachhaltige Lösung"],
     href: "/rohrreinigung#hochdruck",
     image: "/images/services/plumbing/pressure.jpg"
@@ -58,7 +58,7 @@ const services = [
   {
     title: "Kanal- und Rohrinspektionen",
     description: "Moderne Kamerainspektion zur genauen Problemanalyse. Ermöglicht gezielte und effiziente Reparaturen.",
-    icon: <FaVideo className="text-4xl text-blue-600" />,
+    icon: <FaVideo className="text-4xl text-white" />,
     benefits: ["HD-Kameratechnik", "Detaillierte Analyse", "Dokumentation"],
     href: "/rohrreinigung#inspektion",
     image: "/images/services/plumbing/inspection.jpg"
@@ -66,7 +66,7 @@ const services = [
   {
     title: "Verstopfungsortung",
     description: "Präzise Ortung von Verstopfungen und Rohrschäden. Minimiert Aufwand und Kosten für die Reparatur.",
-    icon: <FaTools className="text-4xl text-blue-600" />,
+    icon: <FaTools className="text-4xl text-white" />,
     benefits: ["Exakte Ortung", "Zeitsparend", "Kostengünstig"],
     href: "/rohrreinigung#ortung",
     image: "/images/services/plumbing/location.jpg"
@@ -74,7 +74,7 @@ const services = [
   {
     title: "Wartung & Prävention",
     description: "Regelmäßige Wartung und vorbeugende Maßnahmen. Verhindert zukünftige Verstopfungen und Rohrschäden.",
-    icon: <MdPlumbing className="text-4xl text-blue-600" />,
+    icon: <MdPlumbing className="text-4xl text-white" />,
     benefits: ["Vorsorgende Pflege", "Regelmäßige Checks", "Langfristiger Schutz"],
     href: "/rohrreinigung#wartung",
     image: "/images/services/plumbing/maintenance.jpg"

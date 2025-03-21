@@ -6,7 +6,7 @@ const schemaData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://ihre-domain.de/schluesseldienst",
-  "name": "24/7 Schlüsseldienst",
+  "name": "Schlüsseldienst Paderborn – 24h Notdienst & Türöffnung",
   "image": "/images/hero/locksmith-hero.jpg",
   "description": "Ihr professioneller Schlüsseldienst für schnelle und schadenfreie Türöffnungen. 24/7 Notdienst mit Festpreisgarantie und 20-30 Minuten Reaktionszeit.",
   "priceRange": "€€",
