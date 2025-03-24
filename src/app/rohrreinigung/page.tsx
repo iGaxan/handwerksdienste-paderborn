@@ -5,11 +5,11 @@ import JsonLd from '@/components/JsonLd';
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://ihre-domain.de/rohrreinigung",
-  "name": "Rohrreinigung Paderborn – 24h Notdienst",
-  "image": "/images/hero/plumber-hero.jpg",
-  "description": "Professioneller Rohrreinigungsservice mit 24/7 Notdienst für Verstopfungen, Kanalreinigung und Rohrbruch-Reparaturen. 5 Jahre Garantie auf alle Arbeiten.",
-  "url": "https://ihre-domain.de/rohrreinigung",
+  "@id": "https://www.expertevorort.de/rohrreinigung",
+  "name": "Rohrreinigung - Experte vor Ort",
+  "image": "/images/hero/plumbing-hero.jpg",
+  "description": "Professionelle Rohrreinigung mit 24/7 Notdienst. Schnelle Hilfe bei verstopften Rohren und Abflüssen.",
+  "url": "https://www.expertevorort.de/rohrreinigung",
   "telephone": "+49176 84536648",
   "areaServed": "Paderborn und Umgebung",
   "openingHoursSpecification": {
@@ -96,34 +96,33 @@ const schemaData = {
   ]
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
+export const metadata: Metadata = {
+  metadataBase: new URL('https://www.expertevorort.de'),
+  title: 'Rohrreinigung » 24/7 Notdienst & Festpreisgarantie',
+  description: 'Professionelle Rohrreinigung ✓ 24h Notdienst ✓ 20-30 Min. vor Ort ✓ Verstopfung beseitigen ✓ Kanalreinigung ➤ Jetzt anrufen!',
+  keywords: 'Rohrreinigung Paderborn, Verstopfung, Abflussreinigung, Kanalreinigung, Notdienst, Hochdruckreinigung, Rohrverstopfung, Rohrbruch, Rohrverlegung, Kamerainspektion',
+  openGraph: {
     title: 'Rohrreinigung & Verstopfungen | 24/7 Notdienst Paderborn',
-    description: 'Professionelle Rohrreinigung, Kanalreinigung und Rohrbruch-Reparatur in Paderborn. ✓ 24/7 Notdienst ✓ 20-30 Min. vor Ort ✓ Festpreisgarantie ✓ 5 Jahre Garantie ✓ Modernste Technik',
-    keywords: 'Rohrreinigung Paderborn, Verstopfung, Abflussreinigung, Kanalreinigung, Notdienst, Hochdruckreinigung, Rohrverstopfung, Rohrbruch, Rohrverlegung, Kamerainspektion',
-    openGraph: {
-      title: 'Rohrreinigung & Verstopfungen | 24/7 Notdienst Paderborn',
-      description: 'Professionelle Rohrreinigung und Verstopfungsbeseitigung in Paderborn. ✓ 24/7 Notdienst ✓ Festpreisgarantie ✓ Kanalreinigung ✓ Rohrbruch-Reparatur ✓ 5 Jahre Garantie',
-      images: ['/images/hero/plumber-hero.jpg'],
-      type: 'website',
-      locale: 'de_DE',
-    },
-    alternates: {
-      canonical: 'https://ihre-domain.de/rohrreinigung',
-    },
-    robots: {
+    description: 'Professionelle Rohrreinigung und Verstopfungsbeseitigung in Paderborn. ✓ 24/7 Notdienst ✓ Festpreisgarantie ✓ Kanalreinigung ✓ Rohrbruch-Reparatur ✓ 5 Jahre Garantie',
+    images: ['/images/hero/plumber-hero.jpg'],
+    type: 'website',
+    locale: 'de_DE',
+  },
+  alternates: {
+    canonical: 'https://www.expertevorort.de/rohrreinigung',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
       index: true,
       follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
-  };
-}
+  },
+};
 
 export default function Rohrreinigung() {
   return (

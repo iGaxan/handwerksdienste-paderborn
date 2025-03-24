@@ -15,15 +15,16 @@ import {
   FaClock
 } from 'react-icons/fa';
 import JsonLd from '@/components/JsonLd';
+import { Metadata } from 'next';
 
 const schemaData = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
-  "@id": "https://ihre-domain.de/entruempelung",
-  "name": "Entrümpelung Paderborn – Schnell & Preiswert",
-  "image": "/images/entruempelung-hero.jpg",
-  "description": "✓ Professionelle Entrümpelung in Paderborn ✓ Haushaltsauflösung ✓ Schnell & zuverlässig ✓ Festpreisgarantie ✓ Tel: 017684536648 ✓ Kostenlose Besichtigung",
-  "url": "https://ihre-domain.de/entruempelung",
+  "@type": "LocalBusiness",
+  "@id": "https://www.expertevorort.de/entruempelung",
+  "name": "Entrümpelung - Experte vor Ort",
+  "image": "/images/hero/clearance-hero.jpg",
+  "description": "Professionelle Entrümpelung und Haushaltsauflösung. Faire Preise und umweltgerechte Entsorgung garantiert.",
+  "url": "https://www.expertevorort.de/entruempelung",
   "telephone": "+4917684536648",
   "areaServed": {
     "@type": "GeoCircle",
@@ -221,4 +222,14 @@ export default function EntruempelungPage() {
       />
     </>
   );
-} 
+}
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://www.expertevorort.de'),
+  title: 'Entrümpelung » Faire Preise & Festpreisgarantie',
+  description: 'Professionelle Entrümpelung ✓ Haushaltsauflösung ✓ Faire Preise ✓ Schnelle Termine ✓ Komplette Räumung ➤ Kostenlos anfragen!',
+  alternates: {
+    canonical: 'https://www.expertevorort.de/entruempelung',
+  },
+  // ... rest of metadata ...
+}; 

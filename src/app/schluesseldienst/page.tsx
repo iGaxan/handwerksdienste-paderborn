@@ -5,8 +5,8 @@ import SchluesseldienstClient from './SchluesseldienstClient';
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://ihre-domain.de/schluesseldienst",
-  "name": "Schlüsseldienst Paderborn – 24h Notdienst & Türöffnung",
+  "@id": "https://www.expertevorort.de/schluesseldienst",
+  "name": "Schlüsseldienst - Experte vor Ort",
   "image": "/images/hero/locksmith-hero.jpg",
   "description": "Ihr professioneller Schlüsseldienst für schnelle und schadenfreie Türöffnungen. 24/7 Notdienst mit Festpreisgarantie und 20-30 Minuten Reaktionszeit.",
   "priceRange": "€€",
@@ -69,34 +69,33 @@ const schemaData = {
   }
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
+export const metadata: Metadata = {
+  metadataBase: new URL('https://www.expertevorort.de'),
+  title: 'Schlüsseldienst » 24/7 Notdienst & faire Preise',
+  description: 'Ihr Schlüsseldienst ✓ 24h Notdienst ✓ 20-30 Min. vor Ort ✓ Festpreisgarantie ✓ Türöffnung ohne Schäden ➤ Jetzt anrufen!',
+  keywords: 'Schlüsseldienst, Türöffnung, Schloss-Austausch, Tresoröffnung, Autoöffnung, Schlüsselanfertigung, Einbruchschutz, Schließanlagen, Notdienst, 24/7 Service, Festpreis',
+  openGraph: {
     title: 'Schlüsseldienst 24/7 | Professionelle Türöffnung & Schlüsselanfertigung',
-    description: 'Ihr professioneller Schlüsseldienst für schnelle und schadenfreie Türöffnungen. ✓ 24/7 Notdienst ✓ Festpreisgarantie ✓ Tresoröffnung ✓ Schlüsselanfertigung ✓ Autoöffnung. Jetzt anrufen!',
-    keywords: 'Schlüsseldienst, Türöffnung, Schloss-Austausch, Tresoröffnung, Autoöffnung, Schlüsselanfertigung, Einbruchschutz, Schließanlagen, Notdienst, 24/7 Service, Festpreis',
-    openGraph: {
-      title: 'Schlüsseldienst 24/7 | Professionelle Türöffnung & Schlüsselanfertigung',
-      description: 'Ihr professioneller Schlüsseldienst für schnelle und schadenfreie Türöffnungen. ✓ 24/7 Notdienst ✓ Festpreisgarantie ✓ Tresoröffnung ✓ Schlüsselanfertigung ✓ Autoöffnung.',
-      images: ['/images/hero/locksmith-hero.jpg'],
-      type: 'website',
-      locale: 'de_DE',
-    },
-    alternates: {
-      canonical: 'https://ihre-domain.de/schluesseldienst',
-    },
-    robots: {
+    description: 'Ihr professioneller Schlüsseldienst für schnelle und schadenfreie Türöffnungen. ✓ 24/7 Notdienst ✓ Festpreisgarantie ✓ Tresoröffnung ✓ Schlüsselanfertigung ✓ Autoöffnung.',
+    images: ['/images/hero/locksmith-hero.jpg'],
+    type: 'website',
+    locale: 'de_DE',
+  },
+  alternates: {
+    canonical: 'https://www.expertevorort.de/schluesseldienst',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
       index: true,
       follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
-  };
-}
+  },
+};
 
 export default function SchluessseldienstPage() {
   return (

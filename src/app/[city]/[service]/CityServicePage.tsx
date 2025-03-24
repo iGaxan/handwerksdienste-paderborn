@@ -26,7 +26,18 @@ import {
   FaSpider,
   FaLeaf,
   FaSprayCan,
-  FaBuilding
+  FaBuilding,
+  FaBolt,
+  FaPlug,
+  FaLightbulb,
+  FaSolarPanel,
+  FaNetworkWired,
+  FaTrash,
+  FaRecycle,
+  FaTruck,
+  FaWarehouse,
+  FaBoxOpen,
+  FaCouch
 } from 'react-icons/fa';
 import { GiPipes, GiRat, GiBirdCage } from 'react-icons/gi';
 import { BiBug } from 'react-icons/bi';
@@ -280,6 +291,122 @@ export default function CityServicePage({ city, service }: Props) {
         heroImage: "/images/hero/pest-control-hero.jpg",
         serviceVideo: "/images/services/pest-control/pest-control-service.mp4"
       };
+    } else if (normalizedService === 'elektro') {
+      return {
+        services: [
+          {
+            title: "Notfall-Elektriker",
+            description: `24/7 Soforthilfe bei Stromausfällen und elektrischen Notfällen in ${decodedCity}. Schnelle Reaktionszeit und professionelle Problemlösung.`,
+            icon: <FaBolt className="text-4xl text-white" />,
+            benefits: ["24/7 Notdienst", "Schnelle Reaktionszeit", "Festpreisgarantie"],
+            href: `/${decodedCity}/elektro#notfall`,
+            image: "/images/services/electrical/emergency.jpg"
+          },
+          {
+            title: "Elektroinstallationen",
+            description: `Professionelle Installation und Modernisierung von Elektroanlagen in ${decodedCity}. Von der Planung bis zur Ausführung aus einer Hand.`,
+            icon: <FaPlug className="text-4xl text-white" />,
+            benefits: ["Fachgerechte Installation", "Modernste Technik", "Sicherheitsprüfung"],
+            href: `/${decodedCity}/elektro#installation`,
+            image: "/images/services/electrical/installation.jpg"
+          },
+          {
+            title: "Beleuchtungstechnik",
+            description: `Installation und Wartung von Beleuchtungssystemen in ${decodedCity}. Energieeffiziente Lösungen für Innen- und Außenbereiche.`,
+            icon: <FaLightbulb className="text-4xl text-white" />,
+            benefits: ["LED-Technik", "Energieeffizient", "Smart Home Integration"],
+            href: `/${decodedCity}/elektro#beleuchtung`,
+            image: "/images/services/electrical/lighting.jpg"
+          },
+          {
+            title: "Smart Home",
+            description: `Installation und Einrichtung von Smart Home Systemen in ${decodedCity}. Intelligente Vernetzung für mehr Komfort und Sicherheit.`,
+            icon: <FaNetworkWired className="text-4xl text-white" />,
+            benefits: ["Intelligente Steuerung", "Energiemanagement", "Fernzugriff"],
+            href: `/${decodedCity}/elektro#smart-home`,
+            image: "/images/services/electrical/smart-home.jpg"
+          },
+          {
+            title: "E-Check & Prüfungen",
+            description: `Professionelle Überprüfung Ihrer elektrischen Anlagen in ${decodedCity}. Sicherheit und Vorschriftsmäßigkeit garantiert.`,
+            icon: <FaCheck className="text-4xl text-white" />,
+            benefits: ["E-Check zertifiziert", "Normgerecht", "Dokumentation"],
+            href: `/${decodedCity}/elektro#pruefung`,
+            image: "/images/services/electrical/testing.jpg"
+          }
+        ],
+        benefits: [
+          "24/7 Notdienst bei elektrischen Störungen",
+          "Festpreisgarantie ohne versteckte Kosten",
+          "Schnelle Reaktionszeit binnen 30-60 Minuten",
+          "VDE-konforme Installationen",
+          "Ausgebildete Elektriker mit Meisterqualifikation",
+          "Modernste Mess- und Prüftechnik",
+          "Smart Home Expertise",
+          "Energieeffiziente Lösungen",
+          "Schriftliche Garantie auf alle Arbeiten"
+        ],
+        heroImage: "/images/hero/electrical-hero.jpg",
+        serviceVideo: "/images/services/electrical/electrical-service.mp4"
+      };
+    } else if (normalizedService === 'entruempelung' || normalizedService === 'entrümpelung') {
+      return {
+        services: [
+          {
+            title: "Wohnungsauflösung",
+            description: `Professionelle und diskrete Wohnungsauflösung in ${decodedCity}. Komplette Räumung und Entsorgung aus einer Hand.`,
+            icon: <FaHome className="text-4xl text-white" />,
+            benefits: ["Komplettservice", "Diskrete Abwicklung", "Besenreine Übergabe"],
+            href: `/${decodedCity}/entruempelung#wohnungsaufloesung`,
+            image: "/images/services/clearance/apartment.jpg"
+          },
+          {
+            title: "Haushaltsauflösung",
+            description: `Fachgerechte Haushaltsauflösung und Entrümpelung in ${decodedCity}. Schnell, zuverlässig und kostengünstig.`,
+            icon: <FaCouch className="text-4xl text-white" />,
+            benefits: ["Faire Preise", "Komplette Räumung", "Verwertbare Gegenstände"],
+            href: `/${decodedCity}/entruempelung#haushaltsaufloesung`,
+            image: "/images/services/clearance/household.jpg"
+          },
+          {
+            title: "Geschäftsauflösung",
+            description: `Professionelle Auflösung von Büros, Läden und Gewerbeflächen in ${decodedCity}. Termingerechte und effiziente Durchführung.`,
+            icon: <FaWarehouse className="text-4xl text-white" />,
+            benefits: ["Termingerecht", "Effiziente Abwicklung", "Geschäftsdiskret"],
+            href: `/${decodedCity}/entruempelung#geschaeftsaufloesung`,
+            image: "/images/services/clearance/business.jpg"
+          },
+          {
+            title: "Entrümpelung & Entsorgung",
+            description: `Fachgerechte Entrümpelung und umweltgerechte Entsorgung in ${decodedCity}. Von einzelnen Möbeln bis zur kompletten Immobilie.`,
+            icon: <FaTrash className="text-4xl text-white" />,
+            benefits: ["Umweltgerecht", "Schnelle Durchführung", "Faire Preise"],
+            href: `/${decodedCity}/entruempelung#entruempelung`,
+            image: "/images/services/clearance/disposal.jpg"
+          },
+          {
+            title: "Sperrmüll-Express",
+            description: `Schnelle und unkomplizierte Sperrmüllabholung in ${decodedCity}. Flexible Termine und faire Festpreise.`,
+            icon: <FaTruck className="text-4xl text-white" />,
+            benefits: ["Express-Service", "Flexible Termine", "Festpreisgarantie"],
+            href: `/${decodedCity}/entruempelung#sperrmuell`,
+            image: "/images/services/clearance/bulky-waste.jpg"
+          }
+        ],
+        benefits: [
+          "Kostenlose Besichtigung und Angebot",
+          "Festpreisgarantie ohne versteckte Kosten",
+          "Schnelle Terminvergabe",
+          "Besenreine Übergabe",
+          "Fachgerechte Entsorgung aller Materialien",
+          "Verwertung brauchbarer Gegenstände",
+          "Diskrete und professionelle Abwicklung",
+          "Umweltgerechte Entsorgung",
+          "Kompetente Beratung und Planung"
+        ],
+        heroImage: "/images/hero/clearance-hero.jpg",
+        serviceVideo: "/images/services/clearance/clearance-service.mp4"
+      };
     }
     return null;
   };
@@ -292,7 +419,7 @@ export default function CityServicePage({ city, service }: Props) {
       <EmergencyBanner />
       <ServicePage
         title={`${service} in ${decodedCity}`}
-        subtitle={`Ihr professioneller ${service} für schnelle und zuverlässige Hilfe in ${decodedCity}. 24/7 Notdienst mit Festpreisgarantie und schneller Reaktionszeit.`}
+        subtitle={`Ihr professioneller ${service} für schnelle und zuverlässige Hilfe in ${decodedCity}. Komplettservice mit Festpreisgarantie und umweltgerechter Entsorgung.`}
         heroImage={config.heroImage}
         services={config.services.map(service => ({
           ...service,

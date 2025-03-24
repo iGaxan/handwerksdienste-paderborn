@@ -15,15 +15,16 @@ import {
   FaBell
 } from 'react-icons/fa';
 import JsonLd from '@/components/JsonLd';
+import { Metadata } from 'next';
 
 const schemaData = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ElectricalService"],
-  "@id": "https://ihre-domain.de/elektro",
-  "name": "Elektriker Paderborn – 24h Notdienst & Elektroinstallation",
-  "image": "/images/electrical-hero.jpg",
-  "description": "✓ 24/7 Elektriker Notdienst in Paderborn ✓ Elektroinstallationen vom Meisterbetrieb ✓ Schnell & zuverlässig ✓ Festpreisgarantie ✓ Tel: 017684536648 ✓ 5 Jahre Garantie",
-  "url": "https://ihre-domain.de/elektro",
+  "@type": "LocalBusiness",
+  "@id": "https://www.expertevorort.de/elektro",
+  "name": "Elektriker - Experte vor Ort",
+  "image": "/images/hero/electrical-hero.jpg",
+  "description": "Ihr Elektriker mit 24/7 Notdienst. E-Check, Elektroinstallationen und Smart Home Lösungen.",
+  "url": "https://www.expertevorort.de/elektro",
   "telephone": "+4917684536648",
   "areaServed": {
     "@type": "GeoCircle",
@@ -221,4 +222,14 @@ export default function ElektroPage() {
       />
     </>
   );
-} 
+}
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://www.expertevorort.de'),
+  title: 'Elektriker » 24/7 Notdienst & E-Check',
+  description: 'Ihr Elektriker ✓ 24h Notdienst ✓ E-Check ✓ Elektroinstallationen ✓ Smart Home ✓ Festpreisgarantie ➤ Jetzt kontaktieren!',
+  alternates: {
+    canonical: 'https://www.expertevorort.de/elektro',
+  },
+  // ... rest of metadata ...
+}; 
