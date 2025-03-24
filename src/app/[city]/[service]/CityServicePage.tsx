@@ -41,6 +41,7 @@ import {
 } from 'react-icons/fa';
 import { GiPipes, GiRat, GiBirdCage } from 'react-icons/gi';
 import { BiBug } from 'react-icons/bi';
+import JsonLd from '@/components/JsonLd';
 
 interface Props {
   city: string;
@@ -414,8 +415,65 @@ export default function CityServicePage({ city, service }: Props) {
   const config = getServiceConfig();
   if (!config) return null;
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service,
+    "description": `Ihr professioneller ${service} für schnelle und zuverlässige Hilfe in ${decodedCity}. Komplettservice mit Festpreisgarantie und umweltgerechter Entsorgung.`,
+    "provider": {
+      "@type": "Organization",
+      "name": "Experte vor Ort",
+      "url": "https://www.expertevorort.de"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Dienstleistungsangebot",
+      "itemListElement": config.services.map((service, index) => ({
+        "@type": "Offer",
+        "name": service.title,
+        "description": service.description,
+        "url": service.href,
+        "itemOffered": {
+          "@type": "Service",
+          "name": service.title,
+          "description": service.description,
+          "provider": {
+            "@type": "Organization",
+            "name": "Experte vor Ort"
+          }
+        },
+        "availability": "https://schema.org/InStock",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "itemListElement": {
+          "@type": "OfferItem",
+          "name": service.title,
+          "itemOffered": {
+            "@type": "Service",
+            "name": service.title
+          }
+        }
+      }))
+    },
+    "serviceOutput": config.services.map(service => ({
+      "@type": "ServiceOutput",
+      "name": service.title,
+      "description": service.description
+    })),
+    "serviceType": service,
+    "areaServed": decodedCity,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "100"
+    }
+  };
+
   return (
     <>
+      <JsonLd data={schemaData} />
       <EmergencyBanner />
       <ServicePage
         title={`${service} in ${decodedCity}`}

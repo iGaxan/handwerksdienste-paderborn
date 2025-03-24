@@ -7,10 +7,10 @@ const schemaData = {
   "@type": "LocalBusiness",
   "@id": "https://www.expertevorort.de/rohrreinigung",
   "name": "Rohrreinigung - Experte vor Ort",
-  "image": "/images/hero/plumbing-hero.jpg",
-  "description": "Professionelle Rohrreinigung mit 24/7 Notdienst. Schnelle Hilfe bei verstopften Rohren und Abflüssen.",
+  "image": "https://www.expertevorort.de/images/hero/plumbing-hero.jpg",
+  "description": "Ihre Rohrreinigung mit 24/7 Notdienst. Verstopfungen beseitigen, Kamera-Inspektion und Kanalreinigung.",
   "url": "https://www.expertevorort.de/rohrreinigung",
-  "telephone": "+49176 84536648",
+  "telephone": "+4917684536648",
   "areaServed": "Paderborn und Umgebung",
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
@@ -99,17 +99,32 @@ const schemaData = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.expertevorort.de'),
   title: 'Rohrreinigung » 24/7 Notdienst & Festpreisgarantie',
-  description: 'Professionelle Rohrreinigung ✓ 24h Notdienst ✓ 20-30 Min. vor Ort ✓ Verstopfung beseitigen ✓ Kanalreinigung ➤ Jetzt anrufen!',
+  description: 'Ihre Rohrreinigung ✓ 24h Notdienst ✓ Verstopfungen beseitigen ✓ Kamera-Inspektion ✓ Festpreisgarantie ➤ Jetzt anrufen!',
   keywords: 'Rohrreinigung Paderborn, Verstopfung, Abflussreinigung, Kanalreinigung, Notdienst, Hochdruckreinigung, Rohrverstopfung, Rohrbruch, Rohrverlegung, Kamerainspektion',
-  openGraph: {
-    title: 'Rohrreinigung & Verstopfungen | 24/7 Notdienst Paderborn',
-    description: 'Professionelle Rohrreinigung und Verstopfungsbeseitigung in Paderborn. ✓ 24/7 Notdienst ✓ Festpreisgarantie ✓ Kanalreinigung ✓ Rohrbruch-Reparatur ✓ 5 Jahre Garantie',
-    images: ['/images/hero/plumber-hero.jpg'],
-    type: 'website',
-    locale: 'de_DE',
-  },
   alternates: {
     canonical: 'https://www.expertevorort.de/rohrreinigung',
+  },
+  openGraph: {
+    title: 'Rohrreinigung » 24/7 Notdienst & Festpreisgarantie',
+    description: 'Ihre Rohrreinigung ✓ 24h Notdienst ✓ Verstopfungen beseitigen ✓ Kamera-Inspektion ✓ Festpreisgarantie',
+    url: 'https://www.expertevorort.de/rohrreinigung',
+    siteName: 'Experte vor Ort',
+    images: [
+      {
+        url: 'https://www.expertevorort.de/images/hero/plumbing-hero.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Rohrreinigung - Experte vor Ort',
+      },
+    ],
+    locale: 'de_DE',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Rohrreinigung » 24/7 Notdienst & Festpreisgarantie',
+    description: 'Ihre Rohrreinigung ✓ 24h Notdienst ✓ Verstopfungen beseitigen ✓ Kamera-Inspektion ✓ Festpreisgarantie',
+    images: ['https://www.expertevorort.de/images/hero/plumbing-hero.jpg'],
   },
   robots: {
     index: true,

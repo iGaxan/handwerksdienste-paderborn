@@ -7,10 +7,11 @@ const schemaData = {
   "@type": "LocalBusiness",
   "@id": "https://www.expertevorort.de/schluesseldienst",
   "name": "Schlüsseldienst - Experte vor Ort",
-  "image": "/images/hero/locksmith-hero.jpg",
-  "description": "Ihr professioneller Schlüsseldienst für schnelle und schadenfreie Türöffnungen. 24/7 Notdienst mit Festpreisgarantie und 20-30 Minuten Reaktionszeit.",
+  "image": "https://www.expertevorort.de/images/hero/locksmith-hero.jpg",
+  "description": "Ihr Schlüsseldienst mit 24/7 Notdienst. Türöffnung ohne Schäden, Schloss-Austausch und Einbruchschutz.",
+  "url": "https://www.expertevorort.de/schluesseldienst",
+  "telephone": "+4917684536648",
   "priceRange": "€€",
-  "telephone": "+49176 84536648",
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": [
@@ -71,15 +72,24 @@ const schemaData = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.expertevorort.de'),
-  title: 'Schlüsseldienst » 24/7 Notdienst & faire Preise',
-  description: 'Ihr Schlüsseldienst ✓ 24h Notdienst ✓ 20-30 Min. vor Ort ✓ Festpreisgarantie ✓ Türöffnung ohne Schäden ➤ Jetzt anrufen!',
+  title: 'Schlüsseldienst » 24/7 Notdienst & Festpreisgarantie',
+  description: 'Ihr Schlüsseldienst ✓ 24h Notdienst ✓ Türöffnung ohne Schäden ✓ Festpreisgarantie ✓ Sofort vor Ort ➤ Jetzt anrufen!',
   keywords: 'Schlüsseldienst, Türöffnung, Schloss-Austausch, Tresoröffnung, Autoöffnung, Schlüsselanfertigung, Einbruchschutz, Schließanlagen, Notdienst, 24/7 Service, Festpreis',
   openGraph: {
-    title: 'Schlüsseldienst 24/7 | Professionelle Türöffnung & Schlüsselanfertigung',
-    description: 'Ihr professioneller Schlüsseldienst für schnelle und schadenfreie Türöffnungen. ✓ 24/7 Notdienst ✓ Festpreisgarantie ✓ Tresoröffnung ✓ Schlüsselanfertigung ✓ Autoöffnung.',
-    images: ['/images/hero/locksmith-hero.jpg'],
-    type: 'website',
+    title: 'Schlüsseldienst » 24/7 Notdienst & Festpreisgarantie',
+    description: 'Ihr Schlüsseldienst ✓ 24h Notdienst ✓ Türöffnung ohne Schäden ✓ Festpreisgarantie ✓ Sofort vor Ort',
+    url: 'https://www.expertevorort.de/schluesseldienst',
+    siteName: 'Experte vor Ort',
+    images: [
+      {
+        url: 'https://www.expertevorort.de/images/hero/locksmith-hero.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Schlüsseldienst - Experte vor Ort',
+      },
+    ],
     locale: 'de_DE',
+    type: 'website',
   },
   alternates: {
     canonical: 'https://www.expertevorort.de/schluesseldienst',
@@ -94,6 +104,12 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Schlüsseldienst » 24/7 Notdienst & Festpreisgarantie',
+    description: 'Ihr Schlüsseldienst ✓ 24h Notdienst ✓ Türöffnung ohne Schäden ✓ Festpreisgarantie ✓ Sofort vor Ort',
+    images: ['https://www.expertevorort.de/images/hero/locksmith-hero.jpg'],
   },
 };
 

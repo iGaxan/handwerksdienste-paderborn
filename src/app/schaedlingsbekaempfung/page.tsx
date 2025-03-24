@@ -13,15 +13,14 @@ import {
 } from 'react-icons/fa';
 import { GiWoodBeam } from 'react-icons/gi';
 import JsonLd from '@/components/JsonLd';
-import { Metadata } from 'next';
 
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://www.expertevorort.de/schaedlingsbekaempfung",
   "name": "Schädlingsbekämpfung - Experte vor Ort",
-  "image": "/images/hero/pest-control-hero.jpg",
-  "description": "Professionelle Schädlingsbekämpfung mit diskretem Service. Schnelle und nachhaltige Lösungen für alle Schädlingsarten.",
+  "image": "https://www.expertevorort.de/images/hero/pest-control-hero.jpg",
+  "description": "Ihre Schädlingsbekämpfung mit diskretem Service. Schnelle und nachhaltige Lösungen für alle Schädlingsarten.",
   "url": "https://www.expertevorort.de/schaedlingsbekaempfung",
   "telephone": "+4917684536648",
   "areaServed": {
@@ -219,14 +218,4 @@ export default function SchaedlingsbekaempfungPage() {
       />
     </>
   );
-}
-
-export const metadata: Metadata = {
-  metadataBase: new URL('https://www.expertevorort.de'),
-  title: 'Schädlingsbekämpfung » Professionell & Diskret',
-  description: 'Schädlingsbekämpfung ✓ Schnelle Hilfe ✓ Diskrete Behandlung ✓ Nachhaltige Bekämpfung ✓ Alle Schädlingsarten ➤ Jetzt anfragen!',
-  alternates: {
-    canonical: 'https://www.expertevorort.de/schaedlingsbekaempfung',
-  },
-  // ... rest of metadata ...
-}; 
+} 
