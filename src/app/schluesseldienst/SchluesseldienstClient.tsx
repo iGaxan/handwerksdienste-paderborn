@@ -15,37 +15,42 @@ import {
 const services = [
   {
     title: "Türöffnung ohne Schäden",
-    description: "Professionelle Türöffnung bei Aussperrung - schnell und ohne Beschädigung Ihrer Tür.",
-    icon: <FaDoorOpen className="text-3xl" />,
-    href: "/schluesseldienst/tueroeffnung",
+    description: "Professionelle Türöffnung bei Aussperrung - schnell und ohne Beschädigung Ihrer Tür. Modernste Technik für schadenfreie Öffnungen.",
+    icon: <FaDoorOpen className="text-4xl text-white" />,
+    benefits: ["Schadenfreie Öffnung", "24/7 Notdienst", "Festpreisgarantie"],
+    href: "/schluesseldienst#tueroeffnung",
     image: "/images/services/locksmith/door-opening.jpg"
   },
   {
     title: "Schloss-Austausch",
-    description: "Austausch und Reparatur von Schließzylindern und Schlössern aller Art.",
-    icon: <FaLock className="text-3xl" />,
-    href: "/schluesseldienst/schloss-austausch",
+    description: "Austausch und Reparatur von Schließzylindern und Schlössern aller Art. Professionelle Installation mit Garantie.",
+    icon: <FaLock className="text-4xl text-white" />,
+    benefits: ["Qualitätsprodukte", "Fachgerechte Montage", "Garantierte Arbeit"],
+    href: "/schluesseldienst#schloss",
     image: "/images/services/locksmith/lock-replacement.jpg"
   },
   {
     title: "Einbruchschutz",
-    description: "Sicherheitsberatung und Installation von einbruchhemmenden Systemen.",
-    icon: <FaShieldAlt className="text-3xl" />,
-    href: "/schluesseldienst/einbruchschutz",
+    description: "Sicherheitsberatung und Installation von einbruchhemmenden Systemen. Modernste Sicherheitstechnik für Ihr Zuhause.",
+    icon: <FaShieldAlt className="text-4xl text-white" />,
+    benefits: ["Sicherheitsberatung", "Professionelle Montage", "Nachhaltiger Schutz"],
+    href: "/schluesseldienst#einbruchschutz",
     image: "/images/services/locksmith/security.jpg"
   },
   {
     title: "Schließanlagen",
-    description: "Installation und Wartung von mechanischen und elektronischen Schließanlagen.",
-    icon: <FaKey className="text-3xl" />,
-    href: "/schluesseldienst/schliessanlagen",
+    description: "Installation und Wartung von mechanischen und elektronischen Schließanlagen. Individuelle Lösungen für Ihre Anforderungen.",
+    icon: <FaKey className="text-4xl text-white" />,
+    benefits: ["Maßgeschneiderte Lösungen", "Regelmäßige Wartung", "Technischer Support"],
+    href: "/schluesseldienst#schliessanlagen",
     image: "/images/services/locksmith/key-systems.jpg"
   },
   {
     title: "Notfall-Service",
-    description: "24/7 Notdienst bei Aussperrung, defekten Schlössern oder nach Einbruch.",
-    icon: <FaTools className="text-3xl" />,
-    href: "/schluesseldienst/notfall",
+    description: "24/7 Notdienst bei Aussperrung, defekten Schlössern oder nach Einbruch. Schnelle Hilfe in jeder Situation.",
+    icon: <FaTools className="text-4xl text-white" />,
+    benefits: ["24/7 Verfügbar", "Schnelle Reaktionszeit", "Notfall-Hilfe"],
+    href: "/schluesseldienst#notfall",
     image: "/images/services/locksmith/emergency.jpg"
   },
   {

@@ -48,7 +48,7 @@ const HeroSection = ({ title, subtitle, heroImage, serviceVideo }: { title: stri
         </div>
       )}
 
-      {/* Hero Image Fallback */}
+      {/* Image Background */}
       {!serviceVideo && (
         <div className="absolute inset-0 w-full h-full">
           <Image
@@ -62,60 +62,34 @@ const HeroSection = ({ title, subtitle, heroImage, serviceVideo }: { title: stri
         </div>
       )}
 
-      <div className="relative z-20 max-w-4xl mx-auto">
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-[#1a365d] text-white px-6 py-2 rounded-full font-medium whitespace-nowrap text-sm sm:text-base inline-block mb-8"
+          transition={{ duration: 0.5 }}
+          className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-2 inline-block mb-6"
         >
-          <span className="hidden sm:inline">24/7 Notdienst verfügbar</span>
-          <span className="sm:hidden">24/7 Notdienst</span>
+          <span className="text-white font-medium flex items-center gap-2">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+            24/7 Notdienst verfügbar
+          </span>
         </motion.div>
 
-        {/* Desktop Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="hidden sm:block text-3xl md:text-5xl font-bold text-white mb-6"
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-4xl md:text-6xl font-bold text-white mb-6"
         >
-          {title.includes('&') ? (
-            <>
-              {title.split('&')[0].trim()}
-              <span className="mx-2">&</span>
-              <span className="text-blue-300">
-                {title.split('&')[1]?.trim()}
-              </span>
-            </>
-          ) : (
-            title
-          )}
+          {title}
         </motion.h1>
 
-        {/* Mobile Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="block sm:hidden text-[2.2rem] font-bold text-white mb-6"
-        >
-          {title.includes('&') ? (
-            <>
-              {title.split('&')[0].trim()}
-              <br />
-              <span className="text-blue-300">
-                {title.split('&')[1]?.trim()}
-              </span>
-            </>
-          ) : (
-            title
-          )}
-        </motion.h1>
-
-        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-white/90 text-base sm:text-xl mb-12 max-w-3xl mx-auto px-4"
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-xl text-white/90 mb-12"
         >
           {subtitle}
         </motion.p>
@@ -123,65 +97,22 @@ const HeroSection = ({ title, subtitle, heroImage, serviceVideo }: { title: stri
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-white text-sm sm:text-xl mb-12 px-4"
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <span className="inline-flex items-center gap-2">
-            Schnell <span className="text-blue-300">✓</span>
-          </span>
-          {' '}
-          <span className="inline-flex items-center gap-2">
-            Zuverlässig <span className="text-blue-300">✓</span>
-          </span>
-          {' '}
-          <span className="inline-flex items-center gap-2">
-            Fair <span className="text-blue-300">✓</span>
-          </span>
-          {' '}
-          <span className="inline-flex items-center gap-2">
-            Umweltfreundlich <span className="text-blue-300">✓</span>
-          </span>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12"
-        >
-          <div className="grid grid-cols-3 gap-8 text-white">
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-blue-300 mb-2">15+</div>
-              <div className="text-sm">Jahre Erfahrung</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-blue-300 mb-2">5000+</div>
-              <div className="text-sm">Zufriedene Kunden</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-blue-300 mb-2">100%</div>
-              <div className="text-sm">Festpreisgarantie</div>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
-        >
-          <a
+          <a 
             href="tel:017684536648"
-            className="bg-[#1a365d] hover:bg-[#2d4a7c] text-white px-8 py-5 text-lg rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto min-w-[250px]"
+            className="bg-white text-[#1a365d] hover:bg-[#90cdf4] px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
           >
-            <FaPhone className="text-xl" /> Kostenlos anfragen
+            <FaPhone className="animate-pulse group-hover:rotate-12 transition-transform" />
+            <span>017684536648</span>
           </a>
-          <a
-            href="https://wa.me/4915735989735"
-            className="bg-[#25D366] hover:bg-[#128C7E] text-white px-8 py-5 text-lg rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto min-w-[250px]"
+          <a 
+            href="https://wa.me/017684536648"
+            className="bg-[#25D366] text-white hover:bg-[#128C7E] px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
           >
-            <FaWhatsapp className="text-xl" /> WhatsApp Anfrage
+            <FaWhatsapp className="group-hover:rotate-12 transition-transform" />
+            <span>WhatsApp Chat</span>
           </a>
         </motion.div>
       </div>
