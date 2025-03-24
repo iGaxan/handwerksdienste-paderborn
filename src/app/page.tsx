@@ -50,20 +50,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Wichtiger Hinweis Banner */}
-      <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 fixed top-20 left-0 right-0 z-50 shadow-md">
-        <div className="flex items-center max-w-7xl mx-auto">
-          <div className="flex-shrink-0">
-            <FaInfoCircle className="h-6 w-6 text-yellow-400" />
-          </div>
-          <div className="ml-3">
-            <p className="text-sm text-yellow-700">
-              Da wir derzeit nicht selbst fahren können, haben wir die entsprechenden Aufgaben an unsere Kooperationsfirma übertragen. Diese wird die Aufträge in unserem Namen ausführen.
-            </p>
-          </div>
-        </div>
-      </div>
-
       <main className="min-h-screen bg-white">
         {/* Hero Section with Image Carousel */}
         <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-[#1a365d] to-[#2563eb] overflow-hidden">
