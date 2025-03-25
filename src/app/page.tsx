@@ -19,7 +19,10 @@ import {
   FaCheckCircle,
   FaMapMarkerAlt,
   FaArrowRight,
-  FaInfoCircle
+  FaInfoCircle,
+  FaHome,
+  FaChevronDown,
+  FaEnvelope
 } from 'react-icons/fa';
 
 const fadeInUp = {
@@ -49,145 +52,85 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <div className="relative w-[180px] h-[37px]">
-          <Image
-            className="dark:invert"
-            src="/next.svg"
-            alt="Next.js logo"
-            fill
-            priority
-          />
-        </div>
-        {/* Hero Section with Image Carousel */}
-        <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-[#1a365d] to-[#2563eb] overflow-hidden">
+    <div className="min-h-screen bg-white">
+      {/* Main Navigation */}
+
+
+      <main>
+        {/* Hero Section */}
+        <section className="relative min-h-[90vh] flex items-center">
           <div className="absolute inset-0">
             <Image
               src={heroImages[currentHeroImage]}
               alt="Hero background"
               fill
-              className="object-cover transition-opacity duration-1000"
+              className="object-cover"
               priority
             />
-          </div>
-          
-          <div className="container relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-2 inline-block mb-6"
-              >
-                <span className="text-white font-medium flex items-center gap-2">
-                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                  24/7 Notdienst verfügbar
-                </span>
-              </motion.div>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-4xl md:text-6xl font-bold text-white mb-6"
-              >
-                Ihr Experte für schnelle & zuverlässige Notdienste
-              </motion.h1>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-wrap justify-center gap-4 text-[#90cdf4] text-xl mb-8"
-              >
-                {[
-                  { text: 'schluesseldienst', icon: <FaKey /> },
-                  { text: 'Rohrreinigung', icon: <FaWrench /> },
-                  { text: 'Sanitär', icon: <FaShower /> },
-                  { text: 'Elektro', icon: <FaBolt /> }
-                ].map((service, index) => (
-                  <motion.span
-                    key={service.text}
-                    className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full"
-                    whileHover={{ scale: 1.05 }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 + index * 0.1 }}
-                  >
-                    {service.icon}
-                    <span>{service.text}</span>
-                  </motion.span>
-                ))}
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 text-white"
-              >
-                {[
-                  { number: '30', text: 'Minuten Reaktionszeit', icon: <FaClock /> },
-                  { number: '24/7', text: 'Erreichbarkeit', icon: <FaCheckCircle /> },
-                  { number: '100%', text: 'Festpreisgarantie', icon: <FaShieldAlt /> },
-                  { number: '15+', text: 'Jahre Erfahrung', icon: <FaTools /> }
-                ].map((stat, index) => (
-                  <motion.div
-                    key={stat.text}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-4 relative overflow-hidden group"
-                    whileHover={{ scale: 1.05 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6 + index * 0.1 }}
-                  >
-                    <div className="absolute -right-4 -bottom-4 text-4xl text-white/10 group-hover:text-white/20 transition-colors">
-                      {stat.icon}
-                </div>
-                    <div className="text-3xl font-bold text-[#90cdf4]">{stat.number}</div>
-                    <div className="text-sm">{stat.text}</div>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center"
-              >
-                <motion.a
-                  href="tel:017684536648"
-                  className="bg-white text-[#1a365d] hover:bg-[#90cdf4] px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <FaPhone className="animate-pulse group-hover:rotate-12 transition-transform" />
-                  <span>017684536648</span>
-                </motion.a>
-                <motion.a
-                  href="https://wa.me/017684536648"
-                  className="bg-[#25D366] text-white hover:bg-[#128C7E] px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <FaWhatsapp className="group-hover:rotate-12 transition-transform" />
-                  <span>WhatsApp Chat</span>
-                </motion.a>
-              </motion.div>
-            </div>
+            <div className="absolute inset-0 bg-black/50"></div>
           </div>
 
-          {/* Scroll Indicator */}
-          <motion.div
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          >
-            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
-              <div className="w-1 h-3 bg-white/60 rounded-full"></div>
+          <div className="container mx-auto px-4 relative z-10 text-center">
+            <div className="inline-flex items-center bg-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 mb-8">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2"></div>
+              <span className="text-white">24/7 Notdienst verfügbar</span>
             </div>
-          </motion.div>
+
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-8">
+              Ihr Experte für schnelle &<br />zuverlässige Notdienste
+            </h1>
+
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              <Link href="/schluesseldienst" className="text-[#90cdf4] hover:text-white transition-colors">
+                🔑 Schlüsseldienst
+              </Link>
+              <Link href="/rohrreinigung" className="text-[#90cdf4] hover:text-white transition-colors">
+                🔧 Rohrreinigung
+              </Link>
+              <Link href="/sanitaer" className="text-[#90cdf4] hover:text-white transition-colors">
+                🚰 Sanitär
+              </Link>
+              <Link href="/elektro" className="text-[#90cdf4] hover:text-white transition-colors">
+                ⚡ Elektro
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white">
+                <div className="text-3xl font-bold text-[#90cdf4]">30</div>
+                <div className="text-sm">Minuten Reaktionszeit</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white">
+                <div className="text-3xl font-bold text-[#90cdf4]">24/7</div>
+                <div className="text-sm">Erreichbarkeit</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white">
+                <div className="text-3xl font-bold text-[#90cdf4]">100%</div>
+                <div className="text-sm">Festpreisgarantie</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white">
+                <div className="text-3xl font-bold text-[#90cdf4]">15+</div>
+                <div className="text-sm">Jahre Erfahrung</div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="tel:017684536648"
+                className="bg-white text-[#003366] hover:bg-[#90cdf4] px-8 py-4 rounded-full font-bold transition-all inline-flex items-center justify-center gap-2"
+              >
+                <FaPhone className="animate-pulse" />
+                <span>017684536648</span>
+              </a>
+              <a
+                href="https://wa.me/017684536648"
+                className="bg-[#25D366] text-white hover:bg-[#128C7E] px-8 py-4 rounded-full font-bold transition-all inline-flex items-center justify-center gap-2"
+              >
+                <FaWhatsapp />
+                <span>WhatsApp Chat</span>
+              </a>
+            </div>
+          </div>
         </section>
 
         {/* Services Section with Image Previews */}
