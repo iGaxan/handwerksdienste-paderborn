@@ -2,7 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true,
     domains: ['expertevorort.de'],
   },
   // Vercel-spezifische Konfiguration
@@ -71,7 +70,6 @@ const nextConfig = {
     ];
   },
   // IONOS-spezifische Konfiguration
-  output: 'export',
   poweredByHeader: false,
   compress: true,
   trailingSlash: true,
