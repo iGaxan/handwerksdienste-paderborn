@@ -19,6 +19,12 @@ const links = [
   { name: 'Servicegebiete', href: '/servicegebiete' },
 ];
 
+const legalLinks = [
+  { name: 'AGB', href: '/agb' },
+  { name: 'Datenschutz', href: '/datenschutz' },
+  { name: 'Impressum', href: '/impressum' },
+];
+
 const services = [
   { name: 'Schlüsseldienst', href: 'schluesseldienst' },
   { name: 'Rohrreinigung', href: 'rohrreinigung' },
@@ -117,6 +123,17 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-gray-700">
           <div className="text-center text-sm text-gray-400">
+            <div className="flex flex-wrap justify-center gap-4 mb-4">
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="hover:text-[#60a5fa] transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
             <p>&copy; {new Date().getFullYear()} Notdienst. Alle Rechte vorbehalten.</p>
             <p className="mt-2">
               Website erstellt von{' '}
