@@ -126,73 +126,73 @@ const schemaData = {
 const services = [
   {
     title: "Elektro-Notdienst",
-    description: "24/7 Notdienst bei elektrischen Störungen und Ausfällen - schnell und zuverlässig.",
+    description: "24/7 Notdienst bei elektrischen Störungen und Ausfällen. Schnelle Hilfe in jeder Situation.",
     icon: <FaBolt className="text-4xl text-white" />,
-    href: "/elektro#notdienst",
-    image: "/images/services/elektro/emergency.jpg"
+    href: "/elektro/notdienst",
+    image: "/images/services/electrical/emergency.jpg"
   },
   {
     title: "Elektroinstallation",
-    description: "Professionelle Elektroinstallationen für Neu- und Altbauten nach aktuellen Normen.",
+    description: "Professionelle Elektroinstallationen für Neu- und Altbauten. Von der Planung bis zur Ausführung.",
     icon: <FaPlug className="text-4xl text-white" />,
-    href: "/elektro#installation",
-    image: "/images/services/elektro/installation.jpg"
+    href: "/elektro/installation",
+    image: "/images/services/electrical/installation.jpg"
   },
   {
-    title: "Beleuchtungstechnik",
-    description: "Moderne Beleuchtungslösungen und LED-Technik für alle Bereiche.",
+    title: "Beleuchtung",
+    description: "Installation und Wartung von modernen Beleuchtungssystemen. Energieeffiziente Lösungen.",
     icon: <FaLightbulb className="text-4xl text-white" />,
-    href: "/elektro#beleuchtung",
-    image: "/images/services/elektro/lighting.jpg"
+    href: "/elektro/beleuchtung",
+    image: "/images/services/electrical/lighting.jpg"
   },
   {
     title: "Sicherheitstechnik",
-    description: "Installation von Alarmanlagen, Videoüberwachung und Zugangssystemen.",
+    description: "Installation von Alarmanlagen, Videoüberwachung und Einbruchschutz.",
     icon: <FaShieldAlt className="text-4xl text-white" />,
-    href: "/elektro#sicherheit",
-    image: "/images/services/elektro/security.jpg"
+    href: "/elektro/sicherheit",
+    image: "/images/services/electrical/security.jpg"
   },
   {
     title: "Smart Home",
-    description: "Intelligente Haussteuerung für Komfort, Sicherheit und Energieeffizienz.",
+    description: "Integration von Smart Home Systemen für mehr Komfort und Energieeffizienz.",
     icon: <FaHome className="text-4xl text-white" />,
-    href: "/elektro#smarthome",
-    image: "/images/services/elektro/smarthome.jpg"
+    href: "/elektro/smart-home",
+    image: "/images/services/electrical/smart-home.jpg"
+  },
+  {
+    title: "Reparatur",
+    description: "Reparatur und Wartung von elektrischen Anlagen und Geräten.",
+    icon: <FaTools className="text-4xl text-white" />,
+    href: "/elektro/reparatur",
+    image: "/images/services/electrical/repair.jpg"
   },
   {
     title: "E-Check",
-    description: "Normgerechte Prüfung Ihrer elektrischen Anlagen und Geräte.",
-    icon: <FaTools className="text-4xl text-white" />,
-    href: "/elektro#echeck",
-    image: "/images/services/elektro/check.jpg"
-  },
-  {
-    title: "Fehlersuche",
-    description: "Professionelle Störungsanalyse und schnelle Fehlerbehebung.",
+    description: "Normgerechte Prüfung Ihrer elektrischen Anlagen für maximale Sicherheit.",
     icon: <FaSearchPlus className="text-4xl text-white" />,
-    href: "/elektro#fehlersuche",
-    image: "/images/services/elektro/troubleshooting.jpg"
+    href: "/elektro/e-check",
+    image: "/images/services/electrical/e-check.jpg"
   },
   {
     title: "Photovoltaik",
-    description: "Installation und Wartung von Solaranlagen und Speichersystemen.",
+    description: "Installation und Wartung von Solaranlagen für nachhaltige Energiegewinnung.",
     icon: <FaSolarPanel className="text-4xl text-white" />,
-    href: "/elektro#solar",
-    image: "/images/services/elektro/solar.jpg"
+    href: "/elektro/photovoltaik",
+    image: "/images/services/electrical/solar.jpg"
   },
   {
-    title: "E-Mobilität",
-    description: "Installation von Wallboxen und Ladeinfrastruktur für E-Autos.",
+    title: "E-Ladestationen",
+    description: "Installation von Ladestationen für Elektrofahrzeuge.",
     icon: <FaChargingStation className="text-4xl text-white" />,
-    href: "/elektro#emobil",
-    image: "/images/services/elektro/charging.jpg"
+    href: "/elektro/ladestationen",
+    image: "/images/services/electrical/charging.jpg"
   },
   {
-    title: "Notrufsysteme",
-    description: "Installation von Notrufsystemen für Senioren und hilfsbedürftige Menschen.",
+    title: "Alarmanlagen",
+    description: "Installation und Wartung von Alarmanlagen für Ihr Zuhause.",
     icon: <FaBell className="text-4xl text-white" />,
-    href: "/elektro#notruf",
-    image: "/images/services/elektro/emergency-call.jpg"
+    href: "/elektro/alarmanlagen",
+    image: "/images/services/electrical/alarm.jpg"
   }
 ];
 

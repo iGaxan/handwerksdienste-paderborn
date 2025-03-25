@@ -14,32 +14,44 @@ const services = [
   {
     title: "Sanitär-Notdienst",
     description: "Schnelle Hilfe bei Wasserrohrbrüchen und anderen Sanitär-Notfällen.",
-    icon: <FaWrench className="text-3xl" />
+    icon: <FaWrench className="text-3xl" />,
+    href: "/sanitaer/notdienst",
+    image: "/images/services/sanitary/notdienst.jpg"
   },
   {
     title: "Bad-Installation",
     description: "Komplette Badsanierung und Installation von Sanitäranlagen.",
-    icon: <FaShower className="text-3xl" />
+    icon: <FaShower className="text-3xl" />,
+    href: "/sanitaer/bad-installation",
+    image: "/images/services/sanitary/bad-installation.jpg"
   },
   {
     title: "Wasserinstallation",
     description: "Professionelle Installation und Reparatur von Wasserleitungen.",
-    icon: <FaTint className="text-3xl" />
+    icon: <FaTint className="text-3xl" />,
+    href: "/sanitaer/wasserinstallation",
+    image: "/images/services/sanitary/wasserinstallation.jpg"
   },
   {
     title: "WC & Sanitär",
     description: "Reparatur und Montage von WCs, Waschbecken und Sanitäranlagen.",
-    icon: <FaToilet className="text-3xl" />
+    icon: <FaToilet className="text-3xl" />,
+    href: "/sanitaer/wc-sanitaer",
+    image: "/images/services/sanitary/wc-sanitaer.jpg"
   },
   {
     title: "Wartung",
     description: "Regelmäßige Wartung Ihrer Sanitäranlagen für lange Lebensdauer.",
-    icon: <FaTools className="text-3xl" />
+    icon: <FaTools className="text-3xl" />,
+    href: "/sanitaer/wartung",
+    image: "/images/services/sanitary/wartung.jpg"
   },
   {
     title: "Modernisierung",
     description: "Energieeffiziente Modernisierung Ihrer Sanitärinstallationen.",
-    icon: <FaSink className="text-3xl" />
+    icon: <FaSink className="text-3xl" />,
+    href: "/sanitaer/modernisierung",
+    image: "/images/services/sanitary/modernisierung.jpg"
   }
 ];
 

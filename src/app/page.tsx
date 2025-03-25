@@ -49,30 +49,28 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <main className="min-h-screen bg-white">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        <div className="relative w-[180px] h-[37px]">
+          <Image
+            className="dark:invert"
+            src="/next.svg"
+            alt="Next.js logo"
+            fill
+            priority
+          />
+        </div>
         {/* Hero Section with Image Carousel */}
         <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-[#1a365d] to-[#2563eb] overflow-hidden">
-          {heroImages.map((img, index) => (
-            <motion.div
-              key={img}
-              className="absolute inset-0"
-              initial={{ opacity: 0 }}
-              animate={{ 
-                opacity: currentHeroImage === index ? 1 : 0,
-                scale: currentHeroImage === index ? 1.1 : 1
-              }}
-              transition={{ duration: 1.5 }}
-            >
+          <div className="absolute inset-0">
             <Image
-                src={img}
-                alt={`Notdienst Bild ${index + 1}`}
+              src={heroImages[currentHeroImage]}
+              alt="Hero background"
               fill
-                className="object-cover opacity-20"
-                priority={index === 0}
+              className="object-cover transition-opacity duration-1000"
+              priority
             />
-            </motion.div>
-          ))}
+          </div>
           
           <div className="container relative z-10">
             <div className="max-w-4xl mx-auto text-center">
@@ -252,28 +250,14 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all group overflow-hidden"
                 >
-                  <div className="relative h-48 overflow-hidden">
-                    {service.image ? (
-                      <>
-                        <Image
-                          src={service.image}
-                          alt={service.title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
-                      </>
-                    ) : (
-                      <div className="h-full bg-[#1a365d] flex items-center justify-center">
-                        <h3 className="text-xl font-bold text-white">{service.title}</h3>
-                      </div>
-                    )}
-                    {service.image && (
-                      <div className="absolute bottom-4 left-4 right-4 text-white">
-                        <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-                      </div>
-                    )}
-                    </div>
+                  <div className="relative h-48 w-full overflow-hidden rounded-t-lg">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
                   <div className="p-6">
                     <p className="text-gray-600 mb-6">{service.desc}</p>
                     <Link 
@@ -421,7 +405,7 @@ export default function Home() {
                   </div>
                   <p className="text-gray-600 mb-6">{review.text}</p>
                   <div className="flex items-center gap-4">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden">
+                    <div className="relative h-16 w-16 overflow-hidden rounded-full">
                       <Image
                         src={review.image}
                         alt={review.author}

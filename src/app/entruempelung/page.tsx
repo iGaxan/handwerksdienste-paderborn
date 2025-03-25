@@ -126,73 +126,73 @@ const schemaData = {
 const services = [
   {
     title: "Haushaltsauflösung",
-    description: "Professionelle Auflösung kompletter Haushalte inkl. Entsorgung und Reinigung.",
+    description: "Komplette Haushaltsauflösung inkl. Entsorgung und Verwertung.",
     icon: <FaHome className="text-4xl text-white" />,
-    href: "/entruempelung#haushaltsaufloesung",
-    image: "/images/services/entruempelung/household.jpg"
+    href: "/entruempelung/haushaltsaufloesung",
+    image: "/images/services/clearance/household.jpg"
   },
   {
     title: "Entrümpelung",
-    description: "Schnelle und zuverlässige Entrümpelung von Wohnungen, Häusern und Kellern.",
+    description: "Professionelle Entrümpelung von Wohnungen und Häusern.",
     icon: <FaTruck className="text-4xl text-white" />,
-    href: "/entruempelung#entruempelung",
-    image: "/images/services/entruempelung/clearing.jpg"
+    href: "/entruempelung/entruempelung",
+    image: "/images/services/clearance/clearance.jpg"
   },
   {
-    title: "Gewerberäumung",
-    description: "Räumung von Büros, Lagern und Geschäftsräumen - termingerecht und diskret.",
+    title: "Express-Entrümpelung",
+    description: "Schnelle Entrümpelung innerhalb von 24 Stunden.",
+    icon: <FaClock className="text-4xl text-white" />,
+    href: "/entruempelung/express",
+    image: "/images/services/clearance/express.jpg"
+  },
+  {
+    title: "Keller-Entrümpelung",
+    description: "Spezialisierte Entrümpelung von Kellern und Lagerräumen.",
     icon: <FaWarehouse className="text-4xl text-white" />,
-    href: "/entruempelung#gewerbe",
-    image: "/images/services/entruempelung/commercial.jpg"
+    href: "/entruempelung/keller",
+    image: "/images/services/clearance/cellar.jpg"
   },
   {
-    title: "Nachlassauflösung",
-    description: "Pietätvolle und sorgfältige Auflösung von Nachlässen und Wertermittlung.",
+    title: "Dachboden-Entrümpelung",
+    description: "Professionelle Entrümpelung von Dachböden.",
     icon: <FaBoxOpen className="text-4xl text-white" />,
-    href: "/entruempelung#nachlass",
-    image: "/images/services/entruempelung/estate.jpg"
+    href: "/entruempelung/dachboden",
+    image: "/images/services/clearance/attic.jpg"
   },
   {
-    title: "Sperrmüll-Service",
-    description: "Fachgerechte Entsorgung von Sperrmüll und Altmöbeln aller Art.",
+    title: "Garten-Entrümpelung",
+    description: "Entrümpelung und Entsorgung von Gartenabfällen.",
+    icon: <FaLeaf className="text-4xl text-white" />,
+    href: "/entruempelung/garten",
+    image: "/images/services/clearance/garden.jpg"
+  },
+  {
+    title: "Gewerbe-Entrümpelung",
+    description: "Entrümpelung von Geschäftsräumen und Büros.",
     icon: <FaTrash className="text-4xl text-white" />,
-    href: "/entruempelung#sperrmuell",
-    image: "/images/services/entruempelung/bulky-waste.jpg"
+    href: "/entruempelung/gewerbe",
+    image: "/images/services/clearance/commercial.jpg"
   },
   {
-    title: "Wertanrechnung",
-    description: "Faire Wertanrechnung für gut erhaltene Möbel und Antiquitäten.",
+    title: "Nachlassregelung",
+    description: "Sensible und professionelle Nachlassregelung.",
     icon: <FaHandsHelping className="text-4xl text-white" />,
-    href: "/entruempelung#wertanrechnung",
-    image: "/images/services/entruempelung/valuation.jpg"
-  },
-  {
-    title: "Bestandsaufnahme",
-    description: "Kostenlose Besichtigung und detaillierte Bestandsaufnahme vor Ort.",
-    icon: <FaClipboardCheck className="text-4xl text-white" />,
-    href: "/entruempelung#bestandsaufnahme",
-    image: "/images/services/entruempelung/inventory.jpg"
+    href: "/entruempelung/nachlass",
+    image: "/images/services/clearance/estate.jpg"
   },
   {
     title: "Recycling",
-    description: "Umweltgerechte Entsorgung und Wiederverwertung von Materialien.",
+    description: "Umweltgerechte Entsorgung und Verwertung.",
     icon: <FaRecycle className="text-4xl text-white" />,
-    href: "/entruempelung#recycling",
-    image: "/images/services/entruempelung/recycling.jpg"
+    href: "/entruempelung/recycling",
+    image: "/images/services/clearance/recycling.jpg"
   },
   {
-    title: "Grüne Entsorgung",
-    description: "Nachhaltige Entsorgung mit Fokus auf Umweltschutz und Recycling.",
-    icon: <FaLeaf className="text-4xl text-white" />,
-    href: "/entruempelung#green",
-    image: "/images/services/entruempelung/green.jpg"
-  },
-  {
-    title: "Express-Service",
-    description: "Schnelle Entrümpelung innerhalb von 24 Stunden im Notfall.",
-    icon: <FaClock className="text-4xl text-white" />,
-    href: "/entruempelung#express",
-    image: "/images/services/entruempelung/express.jpg"
+    title: "Dokumentation",
+    description: "Ausführliche Dokumentation aller Arbeiten.",
+    icon: <FaClipboardCheck className="text-4xl text-white" />,
+    href: "/entruempelung/dokumentation",
+    image: "/images/services/clearance/documentation.jpg"
   }
 ];
 

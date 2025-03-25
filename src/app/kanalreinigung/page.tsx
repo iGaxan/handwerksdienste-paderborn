@@ -14,32 +14,44 @@ const services = [
   {
     title: "Kanalreinigung",
     description: "Professionelle Reinigung von Abwasserkanälen und Rohrleitungen mit modernster Technik.",
-    icon: <FaWrench className="text-3xl" />
+    icon: <FaWrench className="text-3xl" />,
+    href: "/kanalreinigung",
+    image: "/images/kanalreinigung.jpg"
   },
   {
     title: "Kamera-Inspektion",
     description: "Genaue Untersuchung der Kanäle mit hochauflösender Kameratechnik zur Schadenserkennung.",
-    icon: <FaVideo className="text-3xl" />
+    icon: <FaVideo className="text-3xl" />,
+    href: "/kanalreinigung/kamera-inspektion",
+    image: "/images/kamera-inspektion.jpg"
   },
   {
     title: "Hochdruck-Spülung",
     description: "Effektive Reinigung mit Hochdruckspülung für hartnäckige Verstopfungen und Ablagerungen.",
-    icon: <FaWater className="text-3xl" />
+    icon: <FaWater className="text-3xl" />,
+    href: "/kanalreinigung/hochdruck-spuelung",
+    image: "/images/hochdruck-spuelung.jpg"
   },
   {
     title: "Wartung & Pflege",
     description: "Regelmäßige Wartung Ihrer Kanalsysteme zur Vorbeugung von Verstopfungen und Schäden.",
-    icon: <FaTools className="text-3xl" />
+    icon: <FaTools className="text-3xl" />,
+    href: "/kanalreinigung/wartung",
+    image: "/images/wartung.jpg"
   },
   {
     title: "Leckageortung",
     description: "Präzise Ortung von Leckagen und Rohrbrüchen mit modernster Technik.",
-    icon: <FaSearchLocation className="text-3xl" />
+    icon: <FaSearchLocation className="text-3xl" />,
+    href: "/kanalreinigung/leckageortung",
+    image: "/images/leckageortung.jpg"
   },
   {
     title: "Umweltfreundlich",
     description: "Einsatz umweltschonender Reinigungsmethoden und -mittel.",
-    icon: <FaRecycle className="text-3xl" />
+    icon: <FaRecycle className="text-3xl" />,
+    href: "/kanalreinigung/umweltfreundlich",
+    image: "/images/umweltfreundlich.jpg"
   }
 ];
 
