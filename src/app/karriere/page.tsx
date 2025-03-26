@@ -124,7 +124,7 @@ export default function CareersPage() {
             Senden Sie uns gerne eine Initiativbewerbung!
           </p>
           <a
-            href="mailto:karriere@servicepro.de"
+            href="mailto:info@expertevorort.de"
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50"
           >
             Jetzt initiativ bewerben

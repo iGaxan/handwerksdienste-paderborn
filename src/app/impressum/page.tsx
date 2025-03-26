@@ -33,7 +33,7 @@ export default function ImprintPage() {
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Kontakt</h2>
             <p className="text-gray-600">
               Telefon: 0800 123456789<br />
-              E-Mail: info@servicepro.de
+              E-Mail: info@expertevorort.de
             </p>
           </section>
 

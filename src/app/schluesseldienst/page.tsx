@@ -1,6 +1,9 @@
+'use client';
+
 import { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 import SchluesseldienstClient from './SchluesseldienstClient';
+import SubdomainNavbar from '@/components/SubdomainNavbar';
 
 const schemaData = {
   "@context": "https://schema.org",
@@ -28,7 +31,7 @@ const schemaData = {
   },
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Hatzfelder Str. 68 E",
+    "streetAddress": "Hatzfelder Straße 68 e",
     "addressLocality": "Paderborn",
     "postalCode": "33104",
     "addressCountry": "DE"
@@ -113,11 +116,46 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SchluessseldienstPage() {
+export default function SchluesseldienstPage() {
   return (
     <>
       <JsonLd data={schemaData} />
-      <SchluesseldienstClient />
+      <SubdomainNavbar />
+      
+      <main className="min-h-screen bg-white">
+        <section id="hero" className="relative min-h-screen pt-24">
+          {/* Hero Section Content */}
+          <SchluesseldienstClient />
+        </section>
+
+        <section id="leistungen" className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">Unsere Leistungen</h2>
+            {/* Leistungen Content */}
+          </div>
+        </section>
+
+        <section id="vorteile" className="py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">Ihre Vorteile</h2>
+            {/* Vorteile Content */}
+          </div>
+        </section>
+
+        <section id="preise" className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">Unsere Preise</h2>
+            {/* Preise Content */}
+          </div>
+        </section>
+
+        <section id="kontakt" className="py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">Kontakt</h2>
+            {/* Kontakt Content */}
+          </div>
+        </section>
+      </main>
     </>
   );
 } 

@@ -140,8 +140,8 @@ export default function ContactPage() {
                   </div>
                   <h3 className="text-xl font-semibold">E-Mail</h3>
                 </div>
-                <a href="mailto:kontakt@service.de" className="text-[#007BFF] hover:underline">
-                  kontakt@service.de
+                <a href="mailto:info@expertevorort.de" className="text-[#007BFF] hover:underline">
+                  info@expertevorort.de
                 </a>
               </div>
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">

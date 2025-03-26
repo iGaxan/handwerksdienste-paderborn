@@ -36,7 +36,7 @@ const schemaData = {
   },
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Hatzfelder Str. 68 E",
+    "streetAddress": "Hatzfelder Straße 68 e",
     "addressLocality": "Paderborn",
     "postalCode": "33104",
     "addressCountry": "DE"
