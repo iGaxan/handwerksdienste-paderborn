@@ -53,13 +53,13 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <FaEnvelope className="mr-2" />
-                <a href="mailto:info@example.com" className="hover:text-[#60a5fa]">
-                  info@example.com
+                <a href="mailto:info@expertevorort.de" className="hover:text-[#60a5fa]">
+                  info@expertevorort.de
                 </a>
               </li>
               <li className="flex items-center">
                 <FaMapMarkerAlt className="mr-2" />
-                <span>Hauptstraße 1, 33098 Paderborn</span>
+                <span>Hatzfelder Straße 68 e, 33104 Paderborn</span>
               </li>
             </ul>
           </div>

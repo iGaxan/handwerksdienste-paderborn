@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   FaHome, 
   FaTools, 
@@ -73,9 +74,14 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-white">
-                Notdienst
-              </span>
+              <Image
+                src="/images/Experten.svg"
+                alt="Experten Logo"
+                width={180}
+                height={45}
+                priority
+                className="w-auto h-[45px]"
+              />
             </Link>
 
             {/* Desktop Navigation */}
