@@ -2,7 +2,6 @@
 
 import JsonLd from '@/components/JsonLd';
 import SchluesseldienstClient from './SchluesseldienstClient';
-import SubdomainNavbar from '@/components/SubdomainNavbar';
 
 const schemaData = {
   "@context": "https://schema.org",
@@ -76,10 +75,8 @@ export default function SchluesseldienstPage() {
   return (
     <>
       <JsonLd data={schemaData} />
-      <SubdomainNavbar />
-      
       <main className="min-h-screen bg-white">
-        <section id="hero" className="relative min-h-screen pt-24">
+        <section id="hero" className="relative min-h-screen">
           {/* Hero Section Content */}
           <SchluesseldienstClient />
         </section>
