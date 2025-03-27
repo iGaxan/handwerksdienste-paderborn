@@ -10,7 +10,9 @@ import {
   FaDoorOpen,
   FaPhone, 
   FaWhatsapp,
-  FaCheck
+  FaCheck,
+  FaWrench,
+  FaWater
 } from 'react-icons/fa';
 
 interface Props {
@@ -63,6 +65,43 @@ export default function CityServicePage({ city, service }: Props) {
         heroImage: "/images/hero/locksmith-hero.jpg"
       };
     }
+    
+    if (normalizedService === 'rohrreinigung') {
+      return {
+        services: [
+          {
+            title: "Notfall-Rohrreinigung",
+            description: `24/7 Soforthilfe bei verstopften Rohren und Abflüssen in ${decodedCity}. Schnelle Reaktionszeit und professionelle Entstopfung.`,
+            icon: <FaWrench className="text-4xl text-white" />,
+            benefits: ["Sofortige Hilfe", "Modernste Technik", "Faire Preise"],
+            image: "/images/services/plumbing/plumbing-repair-service.jpg"
+          },
+          {
+            title: "Kanalreinigung",
+            description: `Professionelle Reinigung von Hausanschlüssen und Kanälen in ${decodedCity}. Beseitigung von Verstopfungen und Ablagerungen.`,
+            icon: <FaWater className="text-4xl text-white" />,
+            benefits: ["Gründliche Reinigung", "Kamera-Inspektion", "Nachhaltige Lösung"],
+            image: "/images/services/plumbing/service-maintenance-worker-repairing.jpg"
+          },
+          {
+            title: "Hochdruck-Reinigung",
+            description: `Effektive Hochdruckreinigung für hartnäckige Verstopfungen in ${decodedCity}. Beseitigt auch festsitzende Ablagerungen.`,
+            icon: <FaTools className="text-4xl text-white" />,
+            benefits: ["Modernste Technik", "Effektive Reinigung", "Langanhaltender Erfolg"],
+            image: "/images/services/plumbing/medium-shot-man-posing-studio.jpg"
+          }
+        ],
+        benefits: [
+          "24/7 Notdienst - Rund um die Uhr für Sie da",
+          "Festpreisgarantie ohne versteckte Kosten",
+          "Schnelle Reaktionszeit von 20-30 Minuten",
+          "Modernste Reinigungstechnik für alle Fälle",
+          "5 Jahre Garantie auf fertige Arbeiten"
+        ],
+        heroImage: "/images/services/plumbing/plumbing-repair-service.jpg"
+      };
+    }
+    
     return null;
   };
 
