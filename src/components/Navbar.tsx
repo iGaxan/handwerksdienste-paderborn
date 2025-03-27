@@ -81,6 +81,7 @@ export default function Navbar() {
                 height={45}
                 priority
                 className="w-auto h-[45px]"
+                loading="eager"
               />
             </Link>
 
