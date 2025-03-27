@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect } from 'react';
+import Image from 'next/image';
 import ServicePage from '@/components/ServicePage';
 import EmergencyBanner from '@/components/EmergencyBanner';
 import { 
@@ -37,7 +39,9 @@ import {
   FaTruck,
   FaWarehouse,
   FaBoxOpen,
-  FaCouch
+  FaCouch,
+  FaPhone, 
+  FaWhatsapp
 } from 'react-icons/fa';
 import { GiPipes, GiRat, GiBirdCage } from 'react-icons/gi';
 import { BiBug } from 'react-icons/bi';
@@ -471,103 +475,160 @@ export default function CityServicePage({ city, service }: Props) {
     }
   };
 
+  // Scroll to section if hash exists in URL
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, []);
+
   return (
     <>
       <JsonLd data={schemaData} />
       <EmergencyBanner />
       
-      <main className="min-h-screen bg-white">
-        {/* Hero Section */}
-        <section className="relative py-20 bg-[#003366]">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                {service} in {decodedCity}
-              </h1>
-              <p className="text-xl mb-8 text-gray-200">
-                {`Ihr professioneller ${service} für schnelle und zuverlässige Hilfe in ${decodedCity}. Komplettservice mit Festpreisgarantie und umweltgerechter Entsorgung.`}
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                {config.benefits.slice(0, 3).map((benefit, index) => (
-                  <div key={index} className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-                    <div className="text-3xl mb-4">✓</div>
-                    <p className="text-lg">{benefit}</p>
+      {/* Hero Section */}
+      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-r from-[#003366] to-[#1a4d80]">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={config.heroImage}
+            alt={`${service} in ${decodedCity}`}
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+        </div>
+        
+        <div className="container mx-auto px-4 z-10 text-white text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            {service} in {decodedCity}
+          </h1>
+          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
+            Ihr professioneller {service} für schnelle und zuverlässige Hilfe in {decodedCity}. 
+            24/7 Notdienst mit Festpreisgarantie.
+          </p>
+          
+          <div className="flex flex-col md:flex-row gap-6 justify-center">
+            <a 
+              href="tel:017684536648"
+              className="bg-white text-[#003366] px-8 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-colors flex items-center justify-center gap-3"
+            >
+              <FaPhone className="animate-pulse" />
+              017684536648
+            </a>
+            <a 
+              href="https://wa.me/017684536648"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25D366] text-white px-8 py-4 rounded-full text-xl font-bold hover:bg-[#22c35e] transition-colors flex items-center justify-center gap-3"
+            >
+              <FaWhatsapp />
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="leistungen" className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+            Unsere Leistungen in {decodedCity}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {config.services.map((service, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform"
+              >
+                <div className="relative h-48">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="bg-[#003366] p-3 rounded-full">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-xl font-bold">{service.title}</h3>
                   </div>
-                ))}
+                  <p className="text-gray-600 mb-6">{service.description}</p>
+                  <ul className="space-y-2">
+                    {service.benefits.map((benefit, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <FaCheck className="text-[#003366]" />
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Services Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              Unsere Leistungen in {decodedCity}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {config.services.map((service, index) => (
-                <div key={index} className="bg-white shadow-xl rounded-lg overflow-hidden transition-transform hover:scale-105">
-                  <div className="h-48 relative overflow-hidden">
-                    <img 
-                      src={service.image} 
-                      alt={service.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                    <p className="text-gray-600 mb-4">{service.description}</p>
-                    <ul className="space-y-2">
-                      {service.benefits.map((benefit, idx) => (
-                        <li key={idx} className="flex items-center text-gray-700">
-                          <span className="text-[#003366] mr-2">✓</span>
-                          {benefit}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+      {/* Benefits Section */}
+      <section id="vorteile" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+            Ihre Vorteile in {decodedCity}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {config.benefits.map((benefit, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-lg p-6 shadow-lg flex items-start gap-4"
+              >
+                <div className="bg-[#003366] p-2 rounded-full text-white">
+                  <FaCheck />
                 </div>
-              ))}
-            </div>
+                <p className="text-gray-700">{benefit}</p>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Benefits Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              Ihre Vorteile in {decodedCity}
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="bg-[#003366] rounded-2xl p-8 md:p-12 text-white text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              24/7 Notdienst in {decodedCity}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {config.benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start p-6 bg-white rounded-lg shadow-lg">
-                  <div className="text-[#003366] text-2xl mr-4">✓</div>
-                  <p className="text-gray-700">{benefit}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto bg-[#003366] rounded-2xl p-8 text-white text-center">
-              <h2 className="text-3xl font-bold mb-6">24/7 Notdienst in {decodedCity}</h2>
-              <p className="text-xl mb-8">
-                Rufen Sie uns jetzt an - wir sind rund um die Uhr für Sie da!
-              </p>
+            <p className="text-xl mb-8">
+              Rufen Sie uns jetzt an - wir sind rund um die Uhr für Sie da!
+            </p>
+            <div className="flex flex-col md:flex-row gap-6 justify-center">
               <a 
                 href="tel:017684536648"
-                className="inline-flex items-center px-8 py-4 bg-white text-[#003366] rounded-full text-xl font-bold hover:bg-gray-100 transition-colors"
+                className="bg-white text-[#003366] px-8 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-colors flex items-center justify-center gap-3"
               >
-                📞 017684536648
+                <FaPhone className="animate-pulse" />
+                017684536648
+              </a>
+              <a 
+                href="https://wa.me/017684536648"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#25D366] text-white px-8 py-4 rounded-full text-xl font-bold hover:bg-[#22c35e] transition-colors flex items-center justify-center gap-3"
+              >
+                <FaWhatsapp />
+                WhatsApp
               </a>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
     </>
   );
 }
