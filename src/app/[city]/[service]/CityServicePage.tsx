@@ -475,17 +475,99 @@ export default function CityServicePage({ city, service }: Props) {
     <>
       <JsonLd data={schemaData} />
       <EmergencyBanner />
-      <ServicePage
-        title={`${service} in ${decodedCity}`}
-        subtitle={`Ihr professioneller ${service} für schnelle und zuverlässige Hilfe in ${decodedCity}. Komplettservice mit Festpreisgarantie und umweltgerechter Entsorgung.`}
-        heroImage={config.heroImage}
-        services={config.services.map(service => ({
-          ...service,
-          description: service.description.replace(city, decodedCity)
-        }))}
-        benefits={config.benefits}
-        serviceVideo={config.serviceVideo}
-      />
+      
+      <main className="min-h-screen bg-white">
+        {/* Hero Section */}
+        <section className="relative py-20 bg-[#003366]">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                {service} in {decodedCity}
+              </h1>
+              <p className="text-xl mb-8 text-gray-200">
+                {`Ihr professioneller ${service} für schnelle und zuverlässige Hilfe in ${decodedCity}. Komplettservice mit Festpreisgarantie und umweltgerechter Entsorgung.`}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                {config.benefits.slice(0, 3).map((benefit, index) => (
+                  <div key={index} className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                    <div className="text-3xl mb-4">✓</div>
+                    <p className="text-lg">{benefit}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Unsere Leistungen in {decodedCity}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {config.services.map((service, index) => (
+                <div key={index} className="bg-white shadow-xl rounded-lg overflow-hidden transition-transform hover:scale-105">
+                  <div className="h-48 relative overflow-hidden">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                    <p className="text-gray-600 mb-4">{service.description}</p>
+                    <ul className="space-y-2">
+                      {service.benefits.map((benefit, idx) => (
+                        <li key={idx} className="flex items-center text-gray-700">
+                          <span className="text-[#003366] mr-2">✓</span>
+                          {benefit}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section */}
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Ihre Vorteile in {decodedCity}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {config.benefits.map((benefit, index) => (
+                <div key={index} className="flex items-start p-6 bg-white rounded-lg shadow-lg">
+                  <div className="text-[#003366] text-2xl mr-4">✓</div>
+                  <p className="text-gray-700">{benefit}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto bg-[#003366] rounded-2xl p-8 text-white text-center">
+              <h2 className="text-3xl font-bold mb-6">24/7 Notdienst in {decodedCity}</h2>
+              <p className="text-xl mb-8">
+                Rufen Sie uns jetzt an - wir sind rund um die Uhr für Sie da!
+              </p>
+              <a 
+                href="tel:017684536648"
+                className="inline-flex items-center px-8 py-4 bg-white text-[#003366] rounded-full text-xl font-bold hover:bg-gray-100 transition-colors"
+              >
+                📞 017684536648
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
     </>
   );
 }
