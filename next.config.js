@@ -11,6 +11,40 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/schluesseldienst/:city',
+        destination: 'https://schluesseldienst.expertevorort.de/:city',
+        permanent: true,
+      },
+      {
+        source: '/rohrreinigung/:city',
+        destination: 'https://rohrreinigung.expertevorort.de/:city',
+        permanent: true,
+      },
+      {
+        source: '/sanitaer/:city',
+        destination: 'https://sanitaer.expertevorort.de/:city',
+        permanent: true,
+      },
+      {
+        source: '/schaedlingsbekaempfung/:city',
+        destination: 'https://schaedlingsbekaempfung.expertevorort.de/:city',
+        permanent: true,
+      },
+      {
+        source: '/elektro/:city',
+        destination: 'https://elektro.expertevorort.de/:city',
+        permanent: true,
+      },
+      {
+        source: '/entruempelung/:city',
+        destination: 'https://entruempelung.expertevorort.de/:city',
+        permanent: true,
+      },
+    ];
+  },
   // Vercel-spezifische Konfiguration
   async rewrites() {
     return [
