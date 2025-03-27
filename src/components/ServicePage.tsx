@@ -5,11 +5,12 @@ import Image from 'next/image';
 import { FaPhone, FaWhatsapp, FaCheckCircle } from 'react-icons/fa';
 import ContactForm from '@/components/ContactForm';
 import ServiceCard from "./ServiceCard";
+import { ReactNode } from 'react';
 
 interface Service {
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: ReactNode;
   href: string;
   image: string;
 }
